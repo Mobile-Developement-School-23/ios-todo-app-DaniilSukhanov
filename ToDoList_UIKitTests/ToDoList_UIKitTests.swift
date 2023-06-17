@@ -184,17 +184,17 @@ final class ToDoList_UIKitTests: XCTestCase {
     }
     
     func testFileCache() throws {
-        XCTAssert(fileCache.saveJSON(url: urlJSON))
+        XCTAssert(fileCache.saveJSON(filename: "json"))
         let fileData1 = try! String(contentsOf: urlJSON)
         fileCache.append(TodoItem(text: "werty", importance: .important, isMake: true, createdDate: Date.now))
-        XCTAssert(fileCache.saveJSON(url: urlJSON))
+        XCTAssert(fileCache.saveJSON(filename: "json"))
         let fileData2 = try! String(contentsOf: urlJSON)
         XCTAssert(fileData1 != fileData2, "Не правильно работает .saveJSON или .append")
         var json = try! JSONSerialization.jsonObject(with: Data(contentsOf: urlJSON)) as! [[String: Any]]
         json.append(todoItem.json as! [String: Any])
         try! JSONSerialization.data(withJSONObject: json).write(to: urlJSON)
         let items1 = fileCache.items
-        XCTAssert(fileCache.loadJSON(url: urlJSON))
+        XCTAssert(fileCache.loadJSON(filename: "json"))
         let items2 = fileCache.items
         XCTAssert(items1 != items2, ".loadJSON некоректно работает")
     }

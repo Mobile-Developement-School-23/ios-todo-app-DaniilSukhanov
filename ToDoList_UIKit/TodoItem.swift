@@ -35,7 +35,7 @@ struct TodoItem: Hashable {
     static let titles = ["id", "text", "importance", "deadline", "isMake", "createdData", "changedData"]
     
     init(text: String, importance: Importance,
-         isMake: Bool, createdDate: Date,
+         isMake: Bool, createdDate: Date = .now,
          deadline: Date? = nil, changedDate: Date? = nil, id: String? = nil) {
         self.id = id ?? UUID().uuidString
         self.text = text
@@ -92,6 +92,12 @@ extension TodoItem {
         } else {
             importance = .usual
         }
+        if !data.keys.contains("id") {
+            return nil
+        }
+        guard let id = data["id"] as? String else {
+            return nil
+        }
         return TodoItem(
             text: text,
             importance: importance,
@@ -99,7 +105,7 @@ extension TodoItem {
             createdDate: createdDate.toDate(),
             deadline: (data["deadline"] as? Double)?.toDate(),
             changedDate: (data["changedData"] as? Double)?.toDate(),
-            id: data["id"] as? String
+            id: id
         )
     }
     
