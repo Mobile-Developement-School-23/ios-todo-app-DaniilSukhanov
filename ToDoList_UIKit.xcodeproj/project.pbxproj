@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E44E99882A40D19500985977 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E99872A40D19500985977 /* Log.swift */; };
 		E462960E2A3D32C800EE3439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E462960D2A3D32C800EE3439 /* AppDelegate.swift */; };
 		E46296102A3D32C800EE3439 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E462960F2A3D32C800EE3439 /* SceneDelegate.swift */; };
 		E46296122A3D32C800EE3439 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46296112A3D32C800EE3439 /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E44E99872A40D19500985977 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		E462960A2A3D32C800EE3439 /* ToDoList_UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList_UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E462960D2A3D32C800EE3439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E462960F2A3D32C800EE3439 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				E46296162A3D32CC00EE3439 /* Assets.xcassets */,
 				E46296182A3D32CC00EE3439 /* LaunchScreen.storyboard */,
 				E462961B2A3D32CC00EE3439 /* Info.plist */,
+				E44E99872A40D19500985977 /* Log.swift */,
 			);
 			path = ToDoList_UIKit;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E46296402A3D33D600EE3439 /* TodoItem.swift in Sources */,
+				E44E99882A40D19500985977 /* Log.swift in Sources */,
 				E46296122A3D32C800EE3439 /* ViewController.swift in Sources */,
 				E462960E2A3D32C800EE3439 /* AppDelegate.swift in Sources */,
 				E462963F2A3D33D600EE3439 /* FileCache.swift in Sources */,

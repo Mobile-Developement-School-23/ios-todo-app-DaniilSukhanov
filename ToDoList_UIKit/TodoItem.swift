@@ -33,11 +33,12 @@ struct TodoItem: Hashable {
     
     // в такой последовательности должны передавать данные для csv
     static let titles = ["id", "text", "importance", "deadline", "isMake", "createdData", "changedData"]
+    static let separator = ";"
     
     init(text: String, importance: Importance,
          isMake: Bool, createdDate: Date = .now,
-         deadline: Date? = nil, changedDate: Date? = nil, id: String? = nil) {
-        self.id = id ?? UUID().uuidString
+         deadline: Date? = nil, changedDate: Date? = nil, id: String = UUID().uuidString) {
+        self.id = id
         self.text = text
         self.importance = importance
         self.deadline = deadline
@@ -132,17 +133,17 @@ extension TodoItem {
 
 extension TodoItem {
     static func parse(csv: String) -> TodoItem? {
-        let components = csv.components(separatedBy: ";")
+        let components = csv.components(separatedBy: TodoItem.separator)
         if components.count < 7 {
             return nil
         }
         let id = components[0]
         let text = components[1]
-        let n = Int(components[2])
-        if n == nil && components[2] != "" {
+        let idImportance = Int(components[2])
+        if idImportance == nil && components[2] != "" {
             return nil
         }
-        let importance = Importance.getImportance(id: n)
+        let importance = Importance.getImportance(id: idImportance)
         guard let importance else {
             return nil
         }
@@ -181,7 +182,7 @@ extension TodoItem {
             }
             return result
         }
-        return data.joined(separator: ";")
+        return data.joined(separator: TodoItem.separator)
     }
 }
 
