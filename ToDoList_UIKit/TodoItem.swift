@@ -11,16 +11,6 @@ struct TodoItem: Hashable {
     enum Importance: Int {
         // unimportant - неважная, usual - обычная, important - важная
         case unimportant, usual, important
-        
-        static func getImportance(id: Int?) -> Importance? {
-            switch id {
-            case 0: return .unimportant
-            case 1: return .usual
-            case 2: return .important
-            case .none: return .usual
-            default: return nil
-            }
-        }
     }
     
     let id: String
@@ -86,7 +76,7 @@ extension TodoItem {
             guard let value = data["importance"] as? Int else {
                 return nil
             }
-            guard let value = Importance.getImportance(id: value) else {
+            guard let value = Importance(rawValue: value) else {
                 return nil
             }
             importance = value
@@ -143,7 +133,7 @@ extension TodoItem {
         if idImportance == nil && components[2] != "" {
             return nil
         }
-        let importance = Importance.getImportance(id: idImportance)
+        let importance = Importance(rawValue: idImportance ?? Importance.usual.rawValue)
         guard let importance else {
             return nil
         }

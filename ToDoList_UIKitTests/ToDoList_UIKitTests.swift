@@ -29,7 +29,7 @@ final class ToDoList_UIKitTests: XCTestCase {
         for i in 0..<11 {
             let item = TodoItem(
                 text: "FileJSON\(i)",
-                importance: .getImportance(id: (0..<3).randomElement()) ?? .usual,
+                importance: .init(rawValue: (0..<3).randomElement()!)!,
                 isMake: Bool(),
                 createdDate: Date.now
             )
