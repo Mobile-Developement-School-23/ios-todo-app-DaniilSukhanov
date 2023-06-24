@@ -9,16 +9,14 @@ import Foundation
 
 class UITodoListView: UITableView, UITableViewDataSource, UITableViewDelegate {
     var store: TodoListStore
-    var items = [TodoItem]()
-    let items_ = (0...100).map(String.init)
     
     init(store: TodoListStore) {
         self.store = store
         super.init(frame: .zero, style: .plain)
+        contentSize.height = CGFloat(store.state.fileCache.items.count) * 66
         store.subscribe { state in
             self.update(state: state)
         }
-        
         setupView()
     }
     
@@ -28,14 +26,22 @@ class UITodoListView: UITableView, UITableViewDataSource, UITableViewDelegate {
     
     func update(state: TodoListState) {
         setNeedsDisplay()
-        contentSize.height = CGFloat(items_.count)
+        
+        reloadData()
+        contentSize.height = CGFloat(store.state.fileCache.items.count) * 66
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        items_.count
+        store.state.fileCache.items.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = store.state.fileCache.items[indexPath.row]
+        store.process(.selectedItem(item))
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = store.state.fileCache.items[indexPath.row]
         let cell = self.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath)
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -50,15 +56,18 @@ class UITodoListView: UITableView, UITableViewDataSource, UITableViewDelegate {
         circle.heightAnchor.constraint(equalToConstant: 24).isActive = true
         circle.layer.cornerRadius = 12
         circle.layer.masksToBounds = true
-        circle.backgroundColor = .green
+        circle.backgroundColor = item.isMake ? .green : .red
         stackView.addArrangedSubview(circle)
         let title = UILabel()
+        stackView.addArrangedSubview(title)
+        cell.contentView.addSubview(stackView)
         title.translatesAutoresizingMaskIntoConstraints = false
         title.widthAnchor.constraint(equalToConstant: 252).isActive = true
         title.heightAnchor.constraint(equalToConstant: 24).isActive = true
-        title.text = items_[indexPath.row]
-        stackView.addArrangedSubview(title)
-        cell.contentView.addSubview(stackView)
+        title.text = item.text
+        if !store.state.isShowingMakeItem && item.isMake {
+            cell.isHidden = true
+        }
         return cell
     }
     
