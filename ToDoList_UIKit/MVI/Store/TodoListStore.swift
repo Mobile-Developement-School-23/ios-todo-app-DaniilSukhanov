@@ -14,7 +14,7 @@ class TodoListStore: Store {
     private(set) var state: StateType
     private(set) var reducer: ReducerType
     private(set) var subscribers = [(TodoListState) -> Void]()
-    
+     
     init() {
         self.reducer = .init()
         self.state = .init()

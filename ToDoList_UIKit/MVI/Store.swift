@@ -13,7 +13,7 @@ protocol Store {
     
     var state: StateType { get }
     var subscribers: [(StateType) -> Void] { get }
-    
+     
     func subscribe(_ closure: @escaping (StateType) -> Void)
     func process(_ action: ReducerType.ActionType)
 }

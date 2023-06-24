@@ -25,7 +25,7 @@ class FileCache {
         } else {
             logger.info("\(String.logFormat()) добавление предмета \(item.id)")
             items.append(item)
-        }
+        } 
         
         
     }
