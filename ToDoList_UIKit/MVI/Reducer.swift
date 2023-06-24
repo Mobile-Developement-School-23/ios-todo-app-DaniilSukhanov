@@ -12,3 +12,4 @@ protocol Reducer {
     associatedtype StateType: State
     func callAsFunction(state: StateType, action: ActionType) -> StateType
 }
+ 
