@@ -9,19 +9,24 @@ import Foundation
 import OSLog
 
 class FileCache {
-    private(set) var items = Set<TodoItem>()
+    private(set) var items = [TodoItem]()
     private let urlDirSave = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     private let logger = Logger(category: String(describing: FileCache.self))
+    
+    func createFile(filename: String) -> Bool {
+        FileManager.default.createFile(atPath: urlDirSave.appending(component: filename).path(), contents: nil)
+    }
     
     // Добавление TodoItem с перезаписью
     func append(_ item: TodoItem) {
         if items.contains(item) {
             logger.info("\(String.logFormat()) перезапись предмета \(item.id)")
-            items.remove(item)
+            items[items.firstIndex(of: item)!] = item
         } else {
             logger.info("\(String.logFormat()) добавление предмета \(item.id)")
+            items.append(item)
         }
-        items.insert(item)
+        
         
     }
     
@@ -32,7 +37,7 @@ class FileCache {
             return
         }
         logger.info("\(String.logFormat()) удаление предмета \(item.id)")
-        items.remove(item)
+        items.remove(at: items.firstIndex(of: item)!)
     }
     
     // MARK: -JSON

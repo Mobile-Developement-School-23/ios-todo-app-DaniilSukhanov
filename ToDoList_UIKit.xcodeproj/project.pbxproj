@@ -24,6 +24,7 @@
 		E46296312A3D32CC00EE3439 /* ToDoList_UIKitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46296302A3D32CC00EE3439 /* ToDoList_UIKitUITestsLaunchTests.swift */; };
 		E462963F2A3D33D600EE3439 /* FileCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E462963D2A3D33D600EE3439 /* FileCache.swift */; };
 		E46296402A3D33D600EE3439 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E462963E2A3D33D600EE3439 /* TodoItem.swift */; };
+		E477BAE92A465E0E00C4352F /* EditorTodoItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477BAE82A465E0E00C4352F /* EditorTodoItemController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		E46296302A3D32CC00EE3439 /* ToDoList_UIKitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList_UIKitUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E462963D2A3D33D600EE3439 /* FileCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileCache.swift; sourceTree = "<group>"; };
 		E462963E2A3D33D600EE3439 /* TodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
+		E477BAE82A465E0E00C4352F /* EditorTodoItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorTodoItemController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				E46296112A3D32C800EE3439 /* ViewController.swift */,
 				E46296162A3D32CC00EE3439 /* Assets.xcassets */,
 				E462961B2A3D32CC00EE3439 /* Info.plist */,
+				E477BAE82A465E0E00C4352F /* EditorTodoItemController.swift */,
 			);
 			path = ToDoList_UIKit;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				E44E99882A40D19500985977 /* Log.swift in Sources */,
 				E46296122A3D32C800EE3439 /* ViewController.swift in Sources */,
 				E462960E2A3D32C800EE3439 /* AppDelegate.swift in Sources */,
+				E477BAE92A465E0E00C4352F /* EditorTodoItemController.swift in Sources */,
 				E44E999A2A43133A00985977 /* TodoListReducer.swift in Sources */,
 				E44E99912A430D7C00985977 /* Reducer.swift in Sources */,
 				E462963F2A3D33D600EE3439 /* FileCache.swift in Sources */,
