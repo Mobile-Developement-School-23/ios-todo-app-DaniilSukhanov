@@ -11,15 +11,15 @@ class ViewController: UIViewController {
     var todoListView: UITodoListView
     var store: TodoListStore
     var buttonAdd: UIButton
-    var scrollView: UIScrollView
     var buttonShowMake: ButtonTodoList
+    var titleCounter: UILabel
     
     init(store: TodoListStore) {
         self.store = store
         todoListView = .init(store: store)
-        scrollView = .init()
         buttonAdd = .init()
         buttonShowMake = .init(store: store)
+        titleCounter = .init()
         store.process(.loadItems)
         super.init(nibName: nil, bundle: nil)
         store.subscribe { state in
@@ -46,78 +46,71 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var constraint: NSLayoutConstraint
-        buttonShowMake.backgroundColor = .blue
+        let title = UILabel()
+        title.text = "Мои дела"
+        title.textAlignment = .left
+        title.font = .systemFont(ofSize: 34)
+        view.addSubview(title)
+        title.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            title.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            title.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor),
+            title.heightAnchor.constraint(equalToConstant: 41),
+            title.widthAnchor.constraint(equalToConstant: 158)
+        ])
+        
+        
+        buttonAdd.tintColor = .blue
         buttonShowMake.addTarget(self, action: #selector(showMake), for: .touchDown)
         view.addSubview(buttonShowMake)
         buttonShowMake.translatesAutoresizingMaskIntoConstraints = false
-        constraint = buttonShowMake.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor)
-        constraint.isActive = true
-        constraint = buttonShowMake.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor)
-        constraint.isActive = true
-        constraint = buttonShowMake.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor)
-        constraint.isActive = true
-        constraint = buttonShowMake.heightAnchor.constraint(equalToConstant: 40)
-        constraint.isActive = true
+        NSLayoutConstraint.activate([
+            buttonShowMake.topAnchor.constraint(equalTo: title.bottomAnchor),
+            buttonShowMake.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: 32),
+            buttonShowMake.heightAnchor.constraint(equalToConstant: 20),
+            buttonShowMake.widthAnchor.constraint(equalToConstant: 150)
+        ])
         
-        view.addSubview(scrollView)
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        constraint = scrollView.widthAnchor.constraint(equalToConstant: 343)
-        constraint.priority = .init(998)
-        constraint.isActive = true
-        constraint = scrollView.topAnchor.constraint(equalTo: buttonShowMake.bottomAnchor)
-        constraint.isActive = true
-        constraint = scrollView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
-        constraint.isActive = true
-        constraint = scrollView.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 16)
-        constraint.priority = .init(999)
-        constraint.isActive = true
-        constraint = scrollView.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -16)
-        constraint.priority = .init(999)
-        constraint.isActive = true
-        scrollView.addSubview(todoListView)
-        scrollView.contentSize.height = CGFloat(store.state.fileCache.items.count * 66)
-        todoListView.frame = .init(x: 0, y: 0, width: 0, height: 0)
-        todoListView.translatesAutoresizingMaskIntoConstraints = false
+        titleCounter.text = "Выполнено - ***"
+        titleCounter.textColor = .white
+        titleCounter.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(titleCounter)
+        NSLayoutConstraint.activate([
+            titleCounter.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 32),
+            titleCounter.topAnchor.constraint(equalTo: title.bottomAnchor),
+            titleCounter.heightAnchor.constraint(equalToConstant: 20),
+            titleCounter.widthAnchor.constraint(equalToConstant: 150)
+        ])
+        
+        view.addSubview(todoListView)
         todoListView.backgroundColor = .black
-        constraint = todoListView.widthAnchor.constraint(equalToConstant: .init(Int.max))
-        constraint.priority = .defaultLow
-        constraint.isActive = true
-        constraint = todoListView.heightAnchor.constraint(
-            equalToConstant: CGFloat(store.state.fileCache.items.count * 66)
-        )
-        constraint.isActive = true
+        todoListView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            todoListView.topAnchor.constraint(equalTo: buttonShowMake.bottomAnchor),
+            todoListView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
+            todoListView.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor),
+            todoListView.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor)
+        ])
+    
         
-        
-        scrollView.isScrollEnabled = true
-        scrollView.showsVerticalScrollIndicator = true
-        scrollView.alwaysBounceVertical = true
-        
-        buttonAdd.titleLabel?.text = "test"
         buttonAdd.widthAnchor.constraint(equalToConstant: 44).isActive = true
         buttonAdd.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        buttonAdd.backgroundColor = .green
+        buttonAdd.backgroundColor = .blue
         buttonAdd.translatesAutoresizingMaskIntoConstraints = false
         buttonAdd.layer.cornerRadius = 22
         buttonAdd.layer.masksToBounds = true
         buttonAdd.addTarget(self, action: #selector(actionButtonAdd), for: .touchDown)
         view.addSubview(buttonAdd)
         
-        constraint = buttonAdd.bottomAnchor.constraint(
-            equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -54
-        )
-        constraint.priority = .init(999)
-        constraint.isActive = true
-        constraint = buttonAdd.leftAnchor.constraint(
-            equalTo: view.layoutMarginsGuide.leftAnchor, constant: 166
-        )
-        constraint.priority = .init(999)
-        constraint.isActive = true
-        constraint = buttonAdd.rightAnchor.constraint(
-            equalTo: view.layoutMarginsGuide.rightAnchor, constant: -166
-        )
-        constraint.priority = .init(999)
-        constraint.isActive = true
+        let image = UIImage.create(type: .plusCircle)
+        buttonAdd.setImage(image, for: .normal)
+        
+        NSLayoutConstraint.activate([
+            buttonAdd.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonAdd.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -20),
+            buttonAdd.widthAnchor.constraint(equalToConstant: 44),
+            buttonAdd.heightAnchor.constraint(equalToConstant: 44)
+        ])
     }
     
     @objc func actionButtonAdd() {

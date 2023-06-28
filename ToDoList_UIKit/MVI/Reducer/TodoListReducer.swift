@@ -32,14 +32,15 @@ class TodoListReducer: Reducer {
         case .loadItems:
             if !newState.fileCache.loadJSON(filename: "json.json") {
                 newState.fileCache.createFile(filename: "json.json")
-                newState.fileCache.append(.init(text: "test", importance: .unimportant, isMake: true))
+                newState.fileCache.append(.init(text: "test", importance: .important, isMake: true))
                 newState.fileCache.append(.init(text: "test", importance: .unimportant, isMake: false))
                 newState.fileCache.append(.init(text: "test", importance: .unimportant, isMake: true))
-                newState.fileCache.append(.init(text: "test", importance: .unimportant, isMake: false))
+                newState.fileCache.append(.init(text: "test", importance: .important, isMake: false))
                 newState.fileCache.append(.init(text: "test", importance: .unimportant, isMake: true))
                 newState.fileCache.saveJSON(filename: "json.json")
-            } 
-            newState.fileCache.loadJSON(filename: "json.json")
+                newState.fileCache.loadJSON(filename: "json.json")
+            }
+            
         case .saveItems:
             newState.fileCache.saveJSON(filename: "json.json")
         case .showMaking(let flag):
