@@ -11,21 +11,25 @@ import UIKit
 class EditorTodoItemController: UIViewController {
     var store: TodoListStore
     var stackView: UIStackView
-    var textField: UITextField
     var calendare: UICalendarView
     var buttonDelete: UIButton
     var selectedDate: Date?
     var saveButton: UIButton
     var cancelButton: UIButton
+    var scrollView: UIScrollView
+    var radioImportance: UIRadioImportance
+    var textEditor: UITextEditor
     
     init(store: TodoListStore) {
         self.store = store
         stackView = .init()
-        textField = .init()
         calendare = .init()
         buttonDelete = .init()
         saveButton = .init()
         cancelButton = .init()
+        scrollView = .init()
+        textEditor = .init(store: store)
+        radioImportance = .init(store: store)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -35,17 +39,28 @@ class EditorTodoItemController: UIViewController {
     
     override func loadView() {
         super.loadView()
+        view.backgroundColor = .systemBackground
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 20
         stackView.distribution = .fill
-        view.addSubview(stackView)
-        stackView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true
-        stackView.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor).isActive = true
-        stackView.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor).isActive = true
-        
-        var constraint: NSLayoutConstraint
+        scrollView.addSubview(stackView)
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+            stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+        ])
         
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.setTitle("Отменить", for: .normal)
@@ -53,11 +68,6 @@ class EditorTodoItemController: UIViewController {
         cancelButton.setTitleColor(.red, for: .normal)
         cancelButton.backgroundColor = .white
         stackView.addArrangedSubview(cancelButton)
-        constraint = cancelButton.widthAnchor.constraint(equalToConstant: .init(Int.max))
-        constraint.priority = .init(999)
-        constraint.isActive = true
-        constraint = cancelButton.heightAnchor.constraint(equalToConstant: 40)
-        constraint.isActive = true
         
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         saveButton.setTitle("Сохранить", for: .normal)
@@ -65,27 +75,21 @@ class EditorTodoItemController: UIViewController {
         saveButton.backgroundColor = .white
         saveButton.addTarget(self, action: #selector(actionButtonSave), for: .touchDown)
         stackView.addArrangedSubview(saveButton)
-        constraint = saveButton.widthAnchor.constraint(equalToConstant: .init(Int.max))
-        constraint.priority = .init(999)
-        constraint.isActive = true
-        constraint = saveButton.heightAnchor.constraint(equalToConstant: 40)
-        constraint.isActive = true
         
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        stackView.addArrangedSubview(textField)
-        textField.backgroundColor = .white
-        textField.textColor = .black
-        textField.text = store.state.selectedItem!.text
-        constraint = textField.widthAnchor.constraint(equalToConstant: .init(Int.max))
-        constraint.priority = .init(999)
-        constraint.isActive = true
+        textEditor.translatesAutoresizingMaskIntoConstraints = false
+        textEditor.layer.borderWidth = 3
+        textEditor.isScrollEnabled = false
+        textEditor.layer.borderColor = UIColor.gray.cgColor
+        textEditor.font = .systemFont(ofSize: 20)
+        textEditor.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        stackView.addArrangedSubview(textEditor)
+        
+        stackView.addArrangedSubview(radioImportance)
         
         calendare.translatesAutoresizingMaskIntoConstraints = false
         calendare.selectionBehavior = UICalendarSelectionSingleDate(delegate: self)
         stackView.addArrangedSubview(calendare)
-        constraint = calendare.widthAnchor.constraint(equalToConstant: .init(Int.max))
-        constraint.priority = .init(999)
-        constraint.isActive = true
+        calendare.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
         
         buttonDelete.translatesAutoresizingMaskIntoConstraints = false
         buttonDelete.setTitle("Удалить", for: .normal)
@@ -93,12 +97,9 @@ class EditorTodoItemController: UIViewController {
         buttonDelete.addTarget(self, action: #selector(actionButtonDelete), for: .touchDown)
         buttonDelete.backgroundColor = .white
         stackView.addArrangedSubview(buttonDelete)
-        constraint = stackView.widthAnchor.constraint(equalToConstant: .init(Int.max))
-        constraint.priority = .init(999)
-        constraint.isActive = true
-        constraint = stackView.heightAnchor.constraint(equalToConstant: 100)
-        constraint.isActive = true
+        
     }
+    
     
     @objc func actionButtonDelete() {
         store.process(.removeItem(store.state.selectedItem!))
@@ -106,9 +107,9 @@ class EditorTodoItemController: UIViewController {
     
     @objc func actionButtonSave() {
         let item = TodoItem(
-            text: textField.text!,
-            importance: .important,
-            isMake: false,
+            text: textEditor.text!,
+            importance: radioImportance.importance,
+            isMake: true,
             deadline: selectedDate
         )
         store.process(.addItem(item))

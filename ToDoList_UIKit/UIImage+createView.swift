@@ -12,6 +12,11 @@ enum Image: String {
     case plusCircle
     case whiteСheckmarkCircle
     case greenСheckmarkCircle
+    case info
+    case invisibilityСheckmarkCircle
+    case trash
+    case doubleRedExclamationMarks
+    case arrow
 }
 
 extension UIImage {

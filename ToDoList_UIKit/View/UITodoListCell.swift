@@ -55,8 +55,11 @@ class UITodoListCell: UITableViewCell {
             circle.layer.borderColor = UIColor.green.cgColor
         } else if item.importance == .important {
             circle.layer.borderColor = UIColor.red.cgColor
+            circle.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.2)
         } else {
             circle.layer.borderColor = UIColor.gray.cgColor
+            circle.backgroundColor = .systemBackground
+            
         }
         
     }
