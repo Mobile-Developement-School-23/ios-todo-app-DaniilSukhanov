@@ -77,12 +77,6 @@ class UITodoListView: UITableView, UITableViewDataSource, UITableViewDelegate {
                 }.design {
                     $0.image = UIImage.create(type: .trash)
                     $0.backgroundColor = .red
-                },
-                .init(style: .destructive, title: nil) { (_, _, _) in
-                    print(1)
-                }.design {
-                    $0.image = UIImage.create(type: .info)
-                    $0.backgroundColor = .gray
                 }
             ]
         )

@@ -50,18 +50,26 @@ class UITodoListCell: UITableViewCell {
     
     func configure(with item: TodoItem) {
         title.text = item.text
+        for subview in circle.subviews {
+            subview.removeFromSuperview()
+        }
         if item.isMake {
             circle.backgroundColor = .green
             circle.layer.borderColor = UIColor.green.cgColor
+            let imageView = UIImageView.create(type: .whiteСheckmarkCircle)
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            circle.addSubview(imageView)
+            NSLayoutConstraint.activate([
+                circle.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+                circle.centerXAnchor.constraint(equalTo: imageView.centerXAnchor)
+            ])
         } else if item.importance == .important {
             circle.layer.borderColor = UIColor.red.cgColor
             circle.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.2)
         } else {
             circle.layer.borderColor = UIColor.gray.cgColor
             circle.backgroundColor = .systemBackground
-            
         }
-        
     }
 
     

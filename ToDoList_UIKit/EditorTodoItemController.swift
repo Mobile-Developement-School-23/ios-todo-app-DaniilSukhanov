@@ -19,6 +19,7 @@ class EditorTodoItemController: UIViewController {
     var scrollView: UIScrollView
     var radioImportance: UIRadioImportance
     var textEditor: UITextEditor
+    var toolBar: UIToolbar
     
     init(store: TodoListStore) {
         self.store = store
@@ -28,6 +29,7 @@ class EditorTodoItemController: UIViewController {
         saveButton = .init()
         cancelButton = .init()
         scrollView = .init()
+        toolBar = .init()
         textEditor = .init(store: store)
         radioImportance = .init(store: store)
         super.init(nibName: nil, bundle: nil)
@@ -40,13 +42,35 @@ class EditorTodoItemController: UIViewController {
     override func loadView() {
         super.loadView()
         view.backgroundColor = .systemBackground
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(actionHiddenKeyboard)))
+        
+        toolBar.translatesAutoresizingMaskIntoConstraints = false
+        toolBar.items = [
+            .init(title: "Отмена", style: .done, target: self, action: #selector(actionCancelButton)).design {
+                $0.tintColor = .red
+            },
+            .init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            .init(title: "Дело", style: .done, target: self, action: nil).design {
+                $0.tintColor = .white
+            },
+            .init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            .init(title: "Сохранение", style: .done, target: nil, action: #selector(actionButtonSave))
+        ]
+        view.addSubview(toolBar)
+        NSLayoutConstraint.activate([
+            toolBar.topAnchor.constraint(equalTo: view.topAnchor),
+            toolBar.leftAnchor.constraint(equalTo: view.leftAnchor),
+            toolBar.rightAnchor.constraint(equalTo: view.rightAnchor),
+            toolBar.heightAnchor.constraint(equalToConstant: 56)
+        ])
+        
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            scrollView.topAnchor.constraint(equalTo: toolBar.bottomAnchor, constant: 16),
+            scrollView.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor),
+            scrollView.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
         ])
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -59,29 +83,14 @@ class EditorTodoItemController: UIViewController {
             stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
             stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
         
-        cancelButton.translatesAutoresizingMaskIntoConstraints = false
-        cancelButton.setTitle("Отменить", for: .normal)
-        cancelButton.addTarget(self, action: #selector(actionCancelButton), for: .touchDown)
-        cancelButton.setTitleColor(.red, for: .normal)
-        cancelButton.backgroundColor = .white
-        stackView.addArrangedSubview(cancelButton)
-        
-        saveButton.translatesAutoresizingMaskIntoConstraints = false
-        saveButton.setTitle("Сохранить", for: .normal)
-        saveButton.setTitleColor(.blue, for: .normal)
-        saveButton.backgroundColor = .white
-        saveButton.addTarget(self, action: #selector(actionButtonSave), for: .touchDown)
-        stackView.addArrangedSubview(saveButton)
-        
         textEditor.translatesAutoresizingMaskIntoConstraints = false
-        textEditor.layer.borderWidth = 3
         textEditor.isScrollEnabled = false
-        textEditor.layer.borderColor = UIColor.gray.cgColor
+        textEditor.layer.borderWidth = 2
+        textEditor.layer.borderColor = UIColor.darkGray.cgColor
         textEditor.font = .systemFont(ofSize: 20)
-        textEditor.heightAnchor.constraint(equalToConstant: 80).isActive = true
         stackView.addArrangedSubview(textEditor)
         
         stackView.addArrangedSubview(radioImportance)
@@ -92,14 +101,40 @@ class EditorTodoItemController: UIViewController {
         calendare.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
         
         buttonDelete.translatesAutoresizingMaskIntoConstraints = false
+        buttonDelete.heightAnchor.constraint(equalToConstant: 30).withPriority(999).isActive = true
         buttonDelete.setTitle("Удалить", for: .normal)
         buttonDelete.setTitleColor(.red, for: .normal)
         buttonDelete.addTarget(self, action: #selector(actionButtonDelete), for: .touchDown)
-        buttonDelete.backgroundColor = .white
         stackView.addArrangedSubview(buttonDelete)
         
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        let deviceOrientation = UIDevice.current.orientation
+        
+        switch deviceOrientation {
+        case .landscapeLeft, .landscapeRight:
+            buttonDelete.isHidden = true
+            calendare.isHidden = true
+            saveButton.isHidden = true
+            cancelButton.isHidden = true
+            radioImportance.isHidden = true
+            toolBar.isHidden = true
+        default:
+            buttonDelete.isHidden = false
+            toolBar.isHidden = false
+            calendare.isHidden = false
+            saveButton.isHidden = false
+            cancelButton.isHidden = false
+            radioImportance.isHidden = false
+        }
+    }
+    
+    @objc func actionHiddenKeyboard() {
+        textEditor.endEditing(true)
+    }
     
     @objc func actionButtonDelete() {
         store.process(.removeItem(store.state.selectedItem!))
@@ -109,8 +144,9 @@ class EditorTodoItemController: UIViewController {
         let item = TodoItem(
             text: textEditor.text!,
             importance: radioImportance.importance,
-            isMake: true,
-            deadline: selectedDate
+            isMake: false,
+            deadline: selectedDate,
+            id: store.state.selectedItem?.id ?? UUID().uuidString
         )
         store.process(.addItem(item))
     }

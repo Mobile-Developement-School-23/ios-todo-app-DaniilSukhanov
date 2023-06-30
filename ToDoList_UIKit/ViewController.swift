@@ -12,14 +12,14 @@ class ViewController: UIViewController {
     var store: TodoListStore
     var buttonAdd: UIButton
     var buttonShowMake: ButtonTodoList
-    var titleCounter: UILabel
+    var titleCounter: UICounterLabel
     
     init(store: TodoListStore) {
         self.store = store
         todoListView = .init(store: store)
         buttonAdd = .init()
         buttonShowMake = .init(store: store)
-        titleCounter = .init()
+        titleCounter = .init(store: store)
         store.process(.loadItems)
         super.init(nibName: nil, bundle: nil)
         store.subscribe { state in
@@ -62,6 +62,7 @@ class ViewController: UIViewController {
         
         buttonAdd.tintColor = .blue
         buttonShowMake.addTarget(self, action: #selector(showMake), for: .touchDown)
+        buttonShowMake.setTitleColor(.systemBlue, for: .normal)
         view.addSubview(buttonShowMake)
         buttonShowMake.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -71,8 +72,6 @@ class ViewController: UIViewController {
             buttonShowMake.widthAnchor.constraint(equalToConstant: 150)
         ])
         
-        titleCounter.text = "Выполнено - ***"
-        titleCounter.textColor = .white
         titleCounter.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleCounter)
         NSLayoutConstraint.activate([

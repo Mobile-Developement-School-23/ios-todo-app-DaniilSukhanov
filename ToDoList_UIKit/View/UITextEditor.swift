@@ -10,13 +10,18 @@ import UIKit
 
 class UITextEditor: UITextView {
     var store: TodoListStore
+    var heightConstraint: NSLayoutConstraint?
     
     init(store: TodoListStore) {
         self.store = store
         super.init(frame: .zero, textContainer: nil)
         translatesAutoresizingMaskIntoConstraints = false
         delegate = self
-        text = store.state.selectedItem?.text ?? ""
+        var text = store.state.selectedItem?.text ?? "Введите текст"
+        if text == "" {
+            text = "Введите текст"
+        }
+        self.text = text
     }
     
     required init?(coder: NSCoder) {
@@ -27,7 +32,12 @@ class UITextEditor: UITextView {
 extension UITextEditor: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         let textSize = self.sizeThatFits(CGSize(width: self.bounds.width, height: CGFloat.greatestFiniteMagnitude))
-        textView.heightAnchor.constraint(equalToConstant: textSize.height).isActive = true
-        updateConstraints()
+        guard var heightConstraint else {
+            return
+        }
+        heightConstraint.isActive = false
+        heightConstraint = textView.heightAnchor.constraint(equalToConstant: textSize.height)
+        heightConstraint.isActive = true
+        self.heightConstraint = heightConstraint
     }
 }
