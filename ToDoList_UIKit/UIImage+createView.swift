@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CocoaLumberjackSwift
 
 enum Image: String {
     case plusCircle
@@ -23,6 +24,7 @@ extension UIImage {
     static func create(type image: Image) -> UIImage {
         let string = image.rawValue
         let name = string.first!.uppercased() + string.dropFirst()
+        DDLogInfo("\(String.logFormat()) создание картинки \(name)")
         return .init(named: name)!
     }
 }

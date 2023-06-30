@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     var buttonAdd: UIButton
     var buttonShowMake: ButtonTodoList
     var titleCounter: UICounterLabel
-    
+
     init(store: TodoListStore) {
         self.store = store
         todoListView = .init(store: store)
@@ -26,11 +26,11 @@ class ViewController: UIViewController {
             self.update(state: state)
         }
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func update(state: TodoListState) {
         if state.selectedItem != nil {
             let controller = EditorTodoItemController(store: store)
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
             dismiss(animated: true)
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let title = UILabel()
@@ -58,8 +58,7 @@ class ViewController: UIViewController {
             title.heightAnchor.constraint(equalToConstant: 41),
             title.widthAnchor.constraint(equalToConstant: 158)
         ])
-        
-        
+
         buttonAdd.tintColor = .blue
         buttonShowMake.addTarget(self, action: #selector(showMake), for: .touchDown)
         buttonShowMake.setTitleColor(.systemBlue, for: .normal)
@@ -71,7 +70,7 @@ class ViewController: UIViewController {
             buttonShowMake.heightAnchor.constraint(equalToConstant: 20),
             buttonShowMake.widthAnchor.constraint(equalToConstant: 150)
         ])
-        
+
         titleCounter.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleCounter)
         NSLayoutConstraint.activate([
@@ -80,7 +79,7 @@ class ViewController: UIViewController {
             titleCounter.heightAnchor.constraint(equalToConstant: 20),
             titleCounter.widthAnchor.constraint(equalToConstant: 150)
         ])
-        
+
         view.addSubview(todoListView)
         todoListView.backgroundColor = .black
         todoListView.translatesAutoresizingMaskIntoConstraints = false
@@ -90,8 +89,7 @@ class ViewController: UIViewController {
             todoListView.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor),
             todoListView.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor)
         ])
-    
-        
+
         buttonAdd.widthAnchor.constraint(equalToConstant: 44).isActive = true
         buttonAdd.heightAnchor.constraint(equalToConstant: 44).isActive = true
         buttonAdd.backgroundColor = .blue
@@ -100,10 +98,10 @@ class ViewController: UIViewController {
         buttonAdd.layer.masksToBounds = true
         buttonAdd.addTarget(self, action: #selector(actionButtonAdd), for: .touchDown)
         view.addSubview(buttonAdd)
-        
+
         let image = UIImage.create(type: .plusCircle)
         buttonAdd.setImage(image, for: .normal)
-        
+
         NSLayoutConstraint.activate([
             buttonAdd.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             buttonAdd.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -20),
@@ -111,11 +109,11 @@ class ViewController: UIViewController {
             buttonAdd.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
-    
+
     @objc func actionButtonAdd() {
         store.process(.selectedItem(.init(text: "", importance: .usual, isMake: false)))
     }
-    
+
     @objc func showMake() {
         store.process(.showMaking(!store.state.isShowingMakeItem))
     }
@@ -123,7 +121,7 @@ class ViewController: UIViewController {
 
 class ButtonTodoList: UIButton {
     var store: TodoListStore
-    
+
     init(store: TodoListStore) {
         self.store = store
         super.init(frame: .zero)
@@ -131,13 +129,13 @@ class ButtonTodoList: UIButton {
             self.update(state: state)
         }
     }
-    
+
     func update(state: TodoListState) {
         setTitle(state.isShowingMakeItem ? "Скрыть" : "Показать", for: .normal)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-} 
+
+}

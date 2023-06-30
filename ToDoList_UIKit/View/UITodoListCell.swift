@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 class UITodoListCell: UITableViewCell {
     var circle: UIView
     var title: UILabel
@@ -21,7 +20,7 @@ class UITodoListCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         loadView()
     }
-    
+
     private func loadView() {
         circle.translatesAutoresizingMaskIntoConstraints = false
         circle.layer.cornerRadius = 12
@@ -29,13 +28,13 @@ class UITodoListCell: UITableViewCell {
         circle.layer.borderWidth = 1.5
         circle.clipsToBounds = true
         addSubview(circle)
-        
+
         imageViewMark.translatesAutoresizingMaskIntoConstraints = false
         addSubview(imageViewMark)
-        
+
         title.translatesAutoresizingMaskIntoConstraints = false
         addSubview(title)
-        
+
         NSLayoutConstraint.activate([
             circle.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
             circle.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
@@ -43,23 +42,23 @@ class UITodoListCell: UITableViewCell {
             circle.heightAnchor.constraint(equalToConstant: 24),
             circle.widthAnchor.constraint(equalToConstant: 24)
         ])
-        
+
         NSLayoutConstraint.activate([
             imageViewMark.widthAnchor.constraint(equalToConstant: 20),
             imageViewMark.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
             imageViewMark.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
             imageViewMark.leftAnchor.constraint(equalTo: circle.rightAnchor, constant: 12)
         ])
-        
+
         NSLayoutConstraint.activate([
             title.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
             title.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
             title.leftAnchor.constraint(equalTo: imageViewMark.rightAnchor),
             title.rightAnchor.constraint(equalTo: layoutMarginsGuide.rightAnchor),
-            title.heightAnchor.constraint(equalToConstant: 44),
+            title.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
-    
+
     func configure(with item: TodoItem) {
         title.text = item.text
         for subview in circle.subviews {
@@ -85,14 +84,11 @@ class UITodoListCell: UITableViewCell {
         imageViewMark.isHidden = item.importance != .important
     }
 
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
     }
 }
-
-
