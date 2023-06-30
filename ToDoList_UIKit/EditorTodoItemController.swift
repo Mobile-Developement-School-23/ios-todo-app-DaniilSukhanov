@@ -144,7 +144,7 @@ class EditorTodoItemController: UIViewController {
         let item = TodoItem(
             text: textEditor.text!,
             importance: radioImportance.importance,
-            isMake: false,
+            isMake: store.state.selectedItem?.isMake ?? false,
             deadline: selectedDate,
             id: store.state.selectedItem?.id ?? UUID().uuidString
         )

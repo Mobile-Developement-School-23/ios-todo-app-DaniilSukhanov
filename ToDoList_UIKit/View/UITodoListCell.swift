@@ -12,10 +12,12 @@ import UIKit
 class UITodoListCell: UITableViewCell {
     var circle: UIView
     var title: UILabel
+    var imageViewMark: UIImageView
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         circle = .init()
         title = .init()
+        imageViewMark = .create(type: .doubleRedExclamationMarks)
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         loadView()
     }
@@ -27,6 +29,9 @@ class UITodoListCell: UITableViewCell {
         circle.layer.borderWidth = 1.5
         circle.clipsToBounds = true
         addSubview(circle)
+        
+        imageViewMark.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(imageViewMark)
         
         title.translatesAutoresizingMaskIntoConstraints = false
         addSubview(title)
@@ -40,9 +45,16 @@ class UITodoListCell: UITableViewCell {
         ])
         
         NSLayoutConstraint.activate([
+            imageViewMark.widthAnchor.constraint(equalToConstant: 20),
+            imageViewMark.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
+            imageViewMark.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
+            imageViewMark.leftAnchor.constraint(equalTo: circle.rightAnchor, constant: 12)
+        ])
+        
+        NSLayoutConstraint.activate([
             title.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
             title.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
-            title.leftAnchor.constraint(equalTo: circle.rightAnchor, constant: 20),
+            title.leftAnchor.constraint(equalTo: imageViewMark.rightAnchor),
             title.rightAnchor.constraint(equalTo: layoutMarginsGuide.rightAnchor),
             title.heightAnchor.constraint(equalToConstant: 44),
         ])
@@ -70,6 +82,7 @@ class UITodoListCell: UITableViewCell {
             circle.layer.borderColor = UIColor.gray.cgColor
             circle.backgroundColor = .systemBackground
         }
+        imageViewMark.isHidden = item.importance != .important
     }
 
     
