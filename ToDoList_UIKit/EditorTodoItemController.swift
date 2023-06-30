@@ -20,7 +20,7 @@ class EditorTodoItemController: UIViewController {
     var radioImportance: UIRadioImportance
     var textEditor: UITextEditor
     var toolBar: UIToolbar
-    
+
     init(store: TodoListStore) {
         self.store = store
         stackView = .init()
@@ -34,16 +34,16 @@ class EditorTodoItemController: UIViewController {
         radioImportance = .init(store: store)
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func loadView() {
         super.loadView()
         view.backgroundColor = .systemBackground
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(actionHiddenKeyboard)))
-        
+
         toolBar.translatesAutoresizingMaskIntoConstraints = false
         toolBar.items = [
             .init(title: "Отмена", style: .done, target: self, action: #selector(actionCancelButton)).design {
@@ -63,7 +63,7 @@ class EditorTodoItemController: UIViewController {
             toolBar.rightAnchor.constraint(equalTo: view.rightAnchor),
             toolBar.heightAnchor.constraint(equalToConstant: 56)
         ])
-        
+
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
         NSLayoutConstraint.activate([
@@ -72,7 +72,7 @@ class EditorTodoItemController: UIViewController {
             scrollView.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
         ])
-        
+
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 20
@@ -85,35 +85,35 @@ class EditorTodoItemController: UIViewController {
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
-        
+
         textEditor.translatesAutoresizingMaskIntoConstraints = false
         textEditor.isScrollEnabled = false
         textEditor.layer.borderWidth = 2
         textEditor.layer.borderColor = UIColor.darkGray.cgColor
         textEditor.font = .systemFont(ofSize: 20)
         stackView.addArrangedSubview(textEditor)
-        
+
         stackView.addArrangedSubview(radioImportance)
-        
+
         calendare.translatesAutoresizingMaskIntoConstraints = false
         calendare.selectionBehavior = UICalendarSelectionSingleDate(delegate: self)
         stackView.addArrangedSubview(calendare)
         calendare.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
-        
+
         buttonDelete.translatesAutoresizingMaskIntoConstraints = false
         buttonDelete.heightAnchor.constraint(equalToConstant: 30).withPriority(999).isActive = true
         buttonDelete.setTitle("Удалить", for: .normal)
         buttonDelete.setTitleColor(.red, for: .normal)
         buttonDelete.addTarget(self, action: #selector(actionButtonDelete), for: .touchDown)
         stackView.addArrangedSubview(buttonDelete)
-        
+
     }
-    
+
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        
+
         let deviceOrientation = UIDevice.current.orientation
-        
+
         switch deviceOrientation {
         case .landscapeLeft, .landscapeRight:
             buttonDelete.isHidden = true
@@ -131,15 +131,15 @@ class EditorTodoItemController: UIViewController {
             radioImportance.isHidden = false
         }
     }
-    
+
     @objc func actionHiddenKeyboard() {
         textEditor.endEditing(true)
     }
-    
+
     @objc func actionButtonDelete() {
         store.process(.removeItem(store.state.selectedItem!))
     }
-    
+
     @objc func actionButtonSave() {
         let item = TodoItem(
             text: textEditor.text!,
@@ -150,7 +150,7 @@ class EditorTodoItemController: UIViewController {
         )
         store.process(.addItem(item))
     }
-    
+
     @objc func actionCancelButton() {
         store.process(.selectedItem(nil))
     }

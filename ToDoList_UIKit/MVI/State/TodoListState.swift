@@ -6,7 +6,7 @@
 //
 
 import Foundation
- 
+
 struct TodoListState: State {
     var fileCache = FileCache()
     var selectedItem: TodoItem?
