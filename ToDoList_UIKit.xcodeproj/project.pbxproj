@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		E407D0612A4A1EAE00158B76 /* UITodoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407D0602A4A1EAE00158B76 /* UITodoListCell.swift */; };
 		E43AC6D62A448B8B00C967C0 /* UITodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43AC6D52A448B8B00C967C0 /* UITodoListView.swift */; };
+		E44917462A52E5260071F3DA /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E44917452A52E5260071F3DA /* .swiftlint.yml */; };
+		E44917482A52E9F60071F3DA /* URLSession+dataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44917472A52E9F60071F3DA /* URLSession+dataTask.swift */; };
+		E449174A2A5329810071F3DA /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44917492A5329810071F3DA /* NetworkTests.swift */; };
 		E44E99882A40D19500985977 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E99872A40D19500985977 /* Log.swift */; };
 		E44E998D2A430C1000985977 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E998C2A430C1000985977 /* Store.swift */; };
 		E44E998F2A430C3500985977 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E998E2A430C3500985977 /* State.swift */; };
@@ -55,7 +58,11 @@
 
 /* Begin PBXFileReference section */
 		E407D0602A4A1EAE00158B76 /* UITodoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITodoListCell.swift; sourceTree = "<group>"; };
+		E42AF94F2A5580DE003F47C9 /* ToDoList_UIKitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDoList_UIKitTests.xctestplan; sourceTree = "<group>"; };
 		E43AC6D52A448B8B00C967C0 /* UITodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITodoListView.swift; sourceTree = "<group>"; };
+		E44917452A52E5260071F3DA /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		E44917472A52E9F60071F3DA /* URLSession+dataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+dataTask.swift"; sourceTree = "<group>"; };
+		E44917492A5329810071F3DA /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		E44E99872A40D19500985977 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		E44E998C2A430C1000985977 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		E44E998E2A430C3500985977 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
@@ -174,6 +181,8 @@
 		E46296012A3D32C800EE3439 = {
 			isa = PBXGroup;
 			children = (
+				E42AF94F2A5580DE003F47C9 /* ToDoList_UIKitTests.xctestplan */,
+				E44917452A52E5260071F3DA /* .swiftlint.yml */,
 				E462960C2A3D32C800EE3439 /* ToDoList_UIKit */,
 				E46296232A3D32CC00EE3439 /* ToDoList_UIKitTests */,
 				E462962D2A3D32CC00EE3439 /* ToDoList_UIKitUITests */,
@@ -208,6 +217,7 @@
 				E4DE61F52A4DB7C000FD1DA5 /* UIView+design.swift */,
 				E468D63F2A4F02D200DB9567 /* NSLayoutConstraint.swift */,
 				E468D6432A4F5B5C00DB9567 /* UIBarButtonItem+design.swift */,
+				E44917472A52E9F60071F3DA /* URLSession+dataTask.swift */,
 			);
 			path = ToDoList_UIKit;
 			sourceTree = "<group>";
@@ -216,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				E46296242A3D32CC00EE3439 /* ToDoList_UIKitTests.swift */,
+				E44917492A5329810071F3DA /* NetworkTests.swift */,
 			);
 			path = ToDoList_UIKitTests;
 			sourceTree = "<group>";
@@ -239,6 +250,7 @@
 				E46296062A3D32C800EE3439 /* Sources */,
 				E46296072A3D32C800EE3439 /* Frameworks */,
 				E46296082A3D32C800EE3439 /* Resources */,
+				E44917442A52E2980071F3DA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -333,6 +345,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E44917462A52E5260071F3DA /* .swiftlint.yml in Resources */,
 				E46296172A3D32CC00EE3439 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +366,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E44917442A52E2980071F3DA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E46296062A3D32C800EE3439 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -369,6 +402,7 @@
 				E4DE61F22A4CD59600FD1DA5 /* UIContextualAction+design.swift in Sources */,
 				E477BAE92A465E0E00C4352F /* EditorTodoItemController.swift in Sources */,
 				E44E999A2A43133A00985977 /* TodoListReducer.swift in Sources */,
+				E44917482A52E9F60071F3DA /* URLSession+dataTask.swift in Sources */,
 				E468D6402A4F02D200DB9567 /* NSLayoutConstraint.swift in Sources */,
 				E44E99912A430D7C00985977 /* Reducer.swift in Sources */,
 				E462963F2A3D33D600EE3439 /* FileCache.swift in Sources */,
@@ -388,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E449174A2A5329810071F3DA /* NetworkTests.swift in Sources */,
 				E46296252A3D32CC00EE3439 /* ToDoList_UIKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,8 +588,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "danchopancho.ToDoList-UIKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = "";
 			};
 			name = Debug;
 		};
@@ -580,8 +617,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "danchopancho.ToDoList-UIKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = "";
 			};
 			name = Release;
 		};
@@ -599,6 +638,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "danchopancho.ToDoList-UIKitTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToDoList_UIKit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ToDoList_UIKit";
@@ -619,6 +659,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "danchopancho.ToDoList-UIKitTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToDoList_UIKit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ToDoList_UIKit";

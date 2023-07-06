@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIView {
-    func design(_ clouser: (Self) -> ()) -> Self {
+    func design(_ clouser: (Self) -> Void) -> Self {
         clouser(self)
         return self
     }

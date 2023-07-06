@@ -36,12 +36,12 @@ struct TodoItem: Hashable {
         self.createdDate = createdDate
         self.changedDate = changedDate
     } 
-    
+
     // Нужно для FileCache
     static func == (obj1: Self, obj2: Self) -> Bool {
         return obj1.id == obj2.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
@@ -56,11 +56,11 @@ extension TodoItem {
         }
         return toTodoItem(data: json)
     }
-    
+
     var json: Any {
         toDictionary()
     }
-    
+
     private static func toTodoItem(data: [String: Any]) -> TodoItem? {
         guard let text = data["text"] as? String else {
             return nil

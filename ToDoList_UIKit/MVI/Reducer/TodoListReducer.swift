@@ -17,7 +17,7 @@ class TodoListReducer: Reducer {
     }
     typealias ActionType = TodoListAction
     typealias StateType = TodoListState
-    
+
     func callAsFunction(state: StateType, action: ActionType) -> StateType {
         var newState = state
         switch action {
