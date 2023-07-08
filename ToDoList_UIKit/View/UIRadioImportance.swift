@@ -13,7 +13,7 @@ class UIRadioImportance: UIView, UITextViewDelegate {
     var segmentedControl: UISegmentedControl
     var titleView: UILabel
     var store: TodoListStore
-    
+
     init(store: TodoListStore) {
         titleView = .init()
         self.store = store
@@ -22,11 +22,11 @@ class UIRadioImportance: UIView, UITextViewDelegate {
         super.init(frame: .zero)
         loadView()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func loadView() {
         titleView.text = "Важность"
         titleView.translatesAutoresizingMaskIntoConstraints = false
@@ -38,7 +38,7 @@ class UIRadioImportance: UIView, UITextViewDelegate {
             titleView.widthAnchor.constraint(equalToConstant: 120),
             titleView.heightAnchor.constraint(equalTo: layoutMarginsGuide.heightAnchor)
         ])
-        
+
         segmentedControl.addTarget(self, action: #selector(actionRadioImportance), for: .allEvents)
         segmentedControl.insertSegment(withTitle: nil, at: 0, animated: true)
         segmentedControl.insertSegment(withTitle: "Нет", at: 1, animated: true)
@@ -54,9 +54,9 @@ class UIRadioImportance: UIView, UITextViewDelegate {
             segmentedControl.heightAnchor.constraint(equalTo: layoutMarginsGuide.heightAnchor),
             segmentedControl.rightAnchor.constraint(equalTo: layoutMarginsGuide.rightAnchor)
         ])
-        
+
     }
-    
+
     @objc func actionRadioImportance(_ segmentedControl: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0: importance = .unimportant
@@ -66,4 +66,3 @@ class UIRadioImportance: UIView, UITextViewDelegate {
         }
     }
 }
-

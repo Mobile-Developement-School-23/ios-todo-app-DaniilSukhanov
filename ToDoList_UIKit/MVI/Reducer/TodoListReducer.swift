@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CocoaLumberjackSwift
 
 class TodoListReducer: Reducer {
     enum TodoListAction {
@@ -22,14 +23,18 @@ class TodoListReducer: Reducer {
         var newState = state
         switch action {
         case .addItem(let item):
+            DDLogInfo("\(String.logFormat()) выполнение addItem")
             newState.selectedItem = nil
             newState.fileCache.append(item)
         case .removeItem(let item):
+            DDLogInfo("\(String.logFormat()) выполнение removeItem")
             newState.selectedItem = nil
             newState.fileCache.remove(id: item.id)
         case .selectedItem(let item):
+            DDLogInfo("\(String.logFormat()) выполнение selectedItem")
             newState.selectedItem = item
         case .loadItems:
+            DDLogInfo("\(String.logFormat()) выполнение loadItems")
             if !newState.fileCache.loadJSON(filename: "json.json") {
                 newState.fileCache.createFile(filename: "json.json")
                 newState.fileCache.append(.init(text: "task1", importance: .usual, isMake: true))
@@ -40,12 +45,14 @@ class TodoListReducer: Reducer {
                 newState.fileCache.saveJSON(filename: "json.json")
                 newState.fileCache.loadJSON(filename: "json.json")
             }
-            
+
         case .saveItems:
+            DDLogInfo("\(String.logFormat()) выполнение saveItems")
             newState.fileCache.saveJSON(filename: "json.json")
         case .showMaking(let flag):
+            DDLogInfo("\(String.logFormat()) выполнение showMaking")
             newState.isShowingMakeItem = flag
         }
-        return newState 
+        return newState
     }
 }
