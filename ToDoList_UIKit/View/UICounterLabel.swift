@@ -8,10 +8,9 @@
 import Foundation
 import UIKit
 
-
 class UICounterLabel: UILabel {
     var store: TodoListStore
-    
+
     init(store: TodoListStore) {
         self.store = store
         super.init(frame: .zero)
@@ -19,21 +18,20 @@ class UICounterLabel: UILabel {
             self.update(state: state)
         }
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func update(state: TodoListState) {
         let amountMakeItem = store.state.fileCache.items.filter({ $0.isMake }).count
         DispatchQueue.main.async {
             self.text = "Выполнено - \(amountMakeItem)"
         }
     }
-    
+
     func loadView() {
         let amountMakeItem = store.state.fileCache.items.filter({ $0.isMake }).count
         text = "Выполнено - \(amountMakeItem)"
     }
 }
-

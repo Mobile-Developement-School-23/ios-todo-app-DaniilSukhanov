@@ -12,11 +12,11 @@ class FileCache {
     private(set) var items = [TodoItem]()
     private let urlDirSave = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     private let logger = Logger(category: String(describing: FileCache.self))
-    
+
     func createFile(filename: String) -> Bool {
         FileManager.default.createFile(atPath: urlDirSave.appending(component: filename).path(), contents: nil)
     }
-    
+
     // Добавление TodoItem с перезаписью
     func append(_ item: TodoItem) {
         if items.contains(item) {
@@ -26,9 +26,9 @@ class FileCache {
             logger.info("\(String.logFormat()) добавление предмета \(item.id)")
             items.append(item)
         } 
-        
+
     }
-    
+
     // Удаление TodoItem по id
     func remove(id: String) {
         guard let item = items.first(where: { $0.id == id }) else {
@@ -41,6 +41,7 @@ class FileCache {
     
     // MARK: - JSON
     
+
     // Сохранение всех TodoItems в json файл
     func saveJSON(filename: String) -> Bool {
         let data = items.map { item in
@@ -56,7 +57,7 @@ class FileCache {
         }
         return true
     }
-    
+
     // Загрузка всех TodoItems в json файл
     func loadJSON(filename: String) -> Bool {
         guard let data = try? Data(contentsOf: urlDirSave.appending(path: "\(filename).json")) else {
@@ -101,7 +102,7 @@ extension FileCache {
         }
         return true
     }
-    
+
     // Загрузка всех TodoItems в csv файл
     func loadCSV(filename: String) -> Bool {
         guard let string = try? String(contentsOf: urlDirSave.appending(path: "\(filename).csv")) else {
