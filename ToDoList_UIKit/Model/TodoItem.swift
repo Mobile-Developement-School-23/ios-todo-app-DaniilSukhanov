@@ -35,7 +35,8 @@ struct TodoItem: Hashable {
         self.isMake = isMake
         self.createdDate = createdDate
         self.changedDate = changedDate
-    }
+    } 
+
 
     // Нужно для FileCache
     static func == (obj1: Self, obj2: Self) -> Bool {

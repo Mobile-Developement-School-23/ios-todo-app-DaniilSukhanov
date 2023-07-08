@@ -10,6 +10,9 @@
 		B1A22CBC1BC4DC6861F955E6 /* Pods_ToDoList_UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC65AE47053FEA33A53219C /* Pods_ToDoList_UIKit.framework */; };
 		E407D0612A4A1EAE00158B76 /* UITodoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407D0602A4A1EAE00158B76 /* UITodoListCell.swift */; };
 		E43AC6D62A448B8B00C967C0 /* UITodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43AC6D52A448B8B00C967C0 /* UITodoListView.swift */; };
+		E44917462A52E5260071F3DA /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E44917452A52E5260071F3DA /* .swiftlint.yml */; };
+		E44917482A52E9F60071F3DA /* URLSession+dataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44917472A52E9F60071F3DA /* URLSession+dataTask.swift */; };
+		E449174A2A5329810071F3DA /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44917492A5329810071F3DA /* NetworkTests.swift */; };
 		E44E99882A40D19500985977 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E99872A40D19500985977 /* Log.swift */; };
 		E44E998D2A430C1000985977 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E998C2A430C1000985977 /* Store.swift */; };
 		E44E998F2A430C3500985977 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E998E2A430C3500985977 /* State.swift */; };
@@ -83,7 +86,11 @@
 		299084380D10769A952E3606 /* Pods-ToDoList_UIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList_UIKit.release.xcconfig"; path = "Target Support Files/Pods-ToDoList_UIKit/Pods-ToDoList_UIKit.release.xcconfig"; sourceTree = "<group>"; };
 		8421578911A4B94FF697A1C4 /* Pods-ToDoList_UIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList_UIKit.debug.xcconfig"; path = "Target Support Files/Pods-ToDoList_UIKit/Pods-ToDoList_UIKit.debug.xcconfig"; sourceTree = "<group>"; };
 		E407D0602A4A1EAE00158B76 /* UITodoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITodoListCell.swift; sourceTree = "<group>"; };
+		E42AF94F2A5580DE003F47C9 /* ToDoList_UIKitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDoList_UIKitTests.xctestplan; sourceTree = "<group>"; };
 		E43AC6D52A448B8B00C967C0 /* UITodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITodoListView.swift; sourceTree = "<group>"; };
+		E44917452A52E5260071F3DA /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		E44917472A52E9F60071F3DA /* URLSession+dataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+dataTask.swift"; sourceTree = "<group>"; };
+		E44917492A5329810071F3DA /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		E44E99872A40D19500985977 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		E44E998C2A430C1000985977 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		E44E998E2A430C3500985977 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
@@ -242,10 +249,8 @@
 		E46296012A3D32C800EE3439 = {
 			isa = PBXGroup;
 			children = (
-				E49DEA6B2A4F94D900785A43 /* Podfile */,
-				E49DEA6C2A4F94D900785A43 /* Podfile.lock */,
-				E49DEA4F2A4F94D900785A43 /* Pods */,
-				E49DEA6D2A4F94D900785A43 /* ToDoList_UIKit.xcworkspace */,
+				E42AF94F2A5580DE003F47C9 /* ToDoList_UIKitTests.xctestplan */,
+				E44917452A52E5260071F3DA /* .swiftlint.yml */,
 				E462960C2A3D32C800EE3439 /* ToDoList_UIKit */,
 				E46296232A3D32CC00EE3439 /* ToDoList_UIKitTests */,
 				E462962D2A3D32CC00EE3439 /* ToDoList_UIKitUITests */,
@@ -282,6 +287,7 @@
 				E4DE61F52A4DB7C000FD1DA5 /* UIView+design.swift */,
 				E468D63F2A4F02D200DB9567 /* NSLayoutConstraint.swift */,
 				E468D6432A4F5B5C00DB9567 /* UIBarButtonItem+design.swift */,
+				E44917472A52E9F60071F3DA /* URLSession+dataTask.swift */,
 			);
 			path = ToDoList_UIKit;
 			sourceTree = "<group>";
@@ -290,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				E46296242A3D32CC00EE3439 /* ToDoList_UIKitTests.swift */,
+				E44917492A5329810071F3DA /* NetworkTests.swift */,
 			);
 			path = ToDoList_UIKitTests;
 			sourceTree = "<group>";
@@ -392,7 +399,8 @@
 				E46296062A3D32C800EE3439 /* Sources */,
 				E46296072A3D32C800EE3439 /* Frameworks */,
 				E46296082A3D32C800EE3439 /* Resources */,
-				E477047A2A4F73F200C67D64 /* ShellScript */,
+				E44917442A52E2980071F3DA /* ShellScript */,
+
 			);
 			buildRules = (
 			);
@@ -511,17 +519,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E49DEA762A4F94D900785A43 /* Manifest.lock in Resources */,
-				E49DEA792A4F94D900785A43 /* swiftlint in Resources */,
-				E49DEA702A4F94D900785A43 /* Pods-ToDoList_UIKit-acknowledgements.markdown in Resources */,
-				E49DEA6F2A4F94D900785A43 /* SwiftLint.release.xcconfig in Resources */,
-				E49DEA782A4F94D900785A43 /* config.yml in Resources */,
-				E49DEA732A4F94D900785A43 /* Pods-ToDoList_UIKit.debug.xcconfig in Resources */,
-				E49DEA7B2A4F94D900785A43 /* Podfile.lock in Resources */,
-				E49DEA772A4F94D900785A43 /* LICENSE in Resources */,
-				E49DEA6E2A4F94D900785A43 /* SwiftLint.debug.xcconfig in Resources */,
-				E49DEA752A4F94D900785A43 /* Pods-ToDoList_UIKit.release.xcconfig in Resources */,
-				E49DEA7A2A4F94D900785A43 /* Podfile in Resources */,
+				E44917462A52E5260071F3DA /* .swiftlint.yml in Resources */,
 				E46296172A3D32CC00EE3439 /* Assets.xcassets in Resources */,
 				E49DEA712A4F94D900785A43 /* Pods-ToDoList_UIKit-acknowledgements.plist in Resources */,
 				E49DEA742A4F94D900785A43 /* Pods-ToDoList_UIKit-Info.plist in Resources */,
@@ -546,7 +544,8 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		DD801A77911C5EF3B34DDBD6 /* [CP] Check Pods Manifest.lock */ = {
+
+		E44917442A52E2980071F3DA /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -554,28 +553,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ToDoList_UIKit-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E477047A2A4F73F200C67D64 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
+
 			);
 			outputFileListPaths = (
 			);
@@ -583,7 +561,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -603,6 +582,7 @@
 				E4DE61F22A4CD59600FD1DA5 /* UIContextualAction+design.swift in Sources */,
 				E477BAE92A465E0E00C4352F /* EditorTodoItemController.swift in Sources */,
 				E44E999A2A43133A00985977 /* TodoListReducer.swift in Sources */,
+				E44917482A52E9F60071F3DA /* URLSession+dataTask.swift in Sources */,
 				E468D6402A4F02D200DB9567 /* NSLayoutConstraint.swift in Sources */,
 				E44E99912A430D7C00985977 /* Reducer.swift in Sources */,
 				E462963F2A3D33D600EE3439 /* FileCache.swift in Sources */,
@@ -623,6 +603,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E449174A2A5329810071F3DA /* NetworkTests.swift in Sources */,
 				E46296252A3D32CC00EE3439 /* ToDoList_UIKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -789,8 +770,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "danchopancho.ToDoList-UIKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = "";
 			};
 			name = Debug;
 		};
@@ -817,8 +800,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "danchopancho.ToDoList-UIKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = "";
 			};
 			name = Release;
 		};
@@ -836,6 +821,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "danchopancho.ToDoList-UIKitTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToDoList_UIKit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ToDoList_UIKit";
@@ -856,6 +842,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "danchopancho.ToDoList-UIKitTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToDoList_UIKit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ToDoList_UIKit";
