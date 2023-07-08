@@ -11,4 +11,6 @@ struct TodoListState: State {
     var fileCache = FileCache()
     var selectedItem: TodoItem?
     var isShowingMakeItem = false
+    var isDirty = false
+    let networkService = DefaultNetworkingService()
 }

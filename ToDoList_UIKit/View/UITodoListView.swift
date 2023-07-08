@@ -24,8 +24,10 @@ class UITodoListView: UITableView, UITableViewDataSource, UITableViewDelegate {
     }
     
     func update(state: TodoListState) {
-        setNeedsDisplay()
-        reloadData()
+        DispatchQueue.main.async {
+            self.setNeedsDisplay()
+            self.reloadData()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,7 +36,9 @@ class UITodoListView: UITableView, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = store.state.fileCache.items[indexPath.row]
-        store.process(.selectedItem(item))
+        Task {
+            await store.process(.selectedItem(item))
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -60,7 +64,9 @@ class UITodoListView: UITableView, UITableViewDataSource, UITableViewDelegate {
                         changedDate: item.changedDate,
                         id: item.id
                     )
-                    self.store.process(.addItem(newItem))
+                    Task {
+                        await self.store.process(.addItem(newItem))
+                    }
                 }.design {
                     $0.image = UIImage.create(type: .invisibilityСheckmarkCircle)
                     $0.backgroundColor = .green
@@ -73,7 +79,9 @@ class UITodoListView: UITableView, UITableViewDataSource, UITableViewDelegate {
         .init(
             actions: [
                 .init(style: .destructive, title: nil) { (_, _, _) in
-                    self.store.process(.removeItem(self.store.state.fileCache.items[indexPath.row]))
+                    Task {
+                        await self.store.process(.removeItem(self.store.state.fileCache.items[indexPath.row]))
+                    }
                 }.design {
                     $0.image = UIImage.create(type: .trash)
                     $0.backgroundColor = .red

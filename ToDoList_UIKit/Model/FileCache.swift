@@ -27,7 +27,6 @@ class FileCache {
             items.append(item)
         } 
         
-        
     }
     
     // Удаление TodoItem по id
@@ -40,7 +39,7 @@ class FileCache {
         items.remove(at: items.firstIndex(of: item)!)
     }
     
-    // MARK: -JSON
+    // MARK: - JSON
     
     // Сохранение всех TodoItems в json файл
     func saveJSON(filename: String) -> Bool {
@@ -79,7 +78,7 @@ class FileCache {
     }
 }
 
-// MARK: -CSV
+// MARK: - CSV
 
 extension FileCache {
     // Сохранение всех TodoItems в csv файл

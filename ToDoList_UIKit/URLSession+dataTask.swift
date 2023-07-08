@@ -31,6 +31,9 @@ extension URLSession {
                 }
                 networkTask.resume()
                 DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(URLSession.maxTimeWait)) {
+                    if networkTask.state == .canceling || networkTask.state == .completed {
+                        return
+                    }
                     networkTask.cancel()
                     URLSession.logger.debug(
                         "\(String.logFormat()) запрост \(networkTask) был отменен через \(URLSession.maxTimeWait) сек."

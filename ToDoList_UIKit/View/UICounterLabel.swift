@@ -26,7 +26,9 @@ class UICounterLabel: UILabel {
     
     func update(state: TodoListState) {
         let amountMakeItem = store.state.fileCache.items.filter({ $0.isMake }).count
-        text = "Выполнено - \(amountMakeItem)"
+        DispatchQueue.main.async {
+            self.text = "Выполнено - \(amountMakeItem)"
+        }
     }
     
     func loadView() {

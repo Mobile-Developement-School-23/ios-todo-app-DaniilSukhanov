@@ -5,6 +5,7 @@ disabled_rules: # rule identifiers to exclude from running
   - identifier_name #rule for checking variable conditions (Upper case , lower case , underscore )
   - force_cast
   - shorthand_operator
+  - trailing_whitespace
 
 cyclomatic_complexity:
   warning: 25 # two nested ifs are acceptable

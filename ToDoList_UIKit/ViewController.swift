@@ -20,10 +20,12 @@ class ViewController: UIViewController {
         buttonAdd = .init()
         buttonShowMake = .init(store: store)
         titleCounter = .init(store: store)
-        store.process(.loadItems)
         super.init(nibName: nil, bundle: nil)
         store.subscribe { state in
             self.update(state: state)
+        }
+        Task {
+            await store.process(.loadItems)
         }
     }
     
@@ -38,15 +40,20 @@ class ViewController: UIViewController {
                 sheetController.presentedViewController.isModalInPresentation = true
                 sheetController.detents = [.large(), .large()]
             }
-            present(controller, animated: true)
+            DispatchQueue.main.async {
+                self.present(controller, animated: true)
+            }
         } else {
-            dismiss(animated: true)
+            DispatchQueue.main.async {
+                self.dismiss(animated: true)
+            }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let title = UILabel()
+        view.backgroundColor = .systemBackground
         title.text = "Мои дела"
         title.textAlignment = .left
         title.font = .systemFont(ofSize: 34)
@@ -58,7 +65,6 @@ class ViewController: UIViewController {
             title.heightAnchor.constraint(equalToConstant: 41),
             title.widthAnchor.constraint(equalToConstant: 158)
         ])
-        
         
         buttonAdd.tintColor = .blue
         buttonShowMake.addTarget(self, action: #selector(showMake), for: .touchDown)
@@ -82,7 +88,7 @@ class ViewController: UIViewController {
         ])
         
         view.addSubview(todoListView)
-        todoListView.backgroundColor = .black
+        todoListView.backgroundColor = .systemBackground
         todoListView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             todoListView.topAnchor.constraint(equalTo: buttonShowMake.bottomAnchor),
@@ -113,11 +119,15 @@ class ViewController: UIViewController {
     }
     
     @objc func actionButtonAdd() {
-        store.process(.selectedItem(.init(text: "", importance: .usual, isMake: false)))
+        Task {
+            await store.process(.selectedItem(.init(text: "", importance: .usual, isMake: false)))
+        }
     }
     
     @objc func showMake() {
-        store.process(.showMaking(!store.state.isShowingMakeItem))
+        Task {
+            await store.process(.showMaking(!store.state.isShowingMakeItem))
+        }
     }
 }
 
@@ -133,7 +143,9 @@ class ButtonTodoList: UIButton {
     }
     
     func update(state: TodoListState) {
-        setTitle(state.isShowingMakeItem ? "Скрыть" : "Показать", for: .normal)
+        DispatchQueue.main.async {
+            self.setTitle(state.isShowingMakeItem ? "Скрыть" : "Показать", for: .normal)
+        }
     }
     
     required init?(coder: NSCoder) {

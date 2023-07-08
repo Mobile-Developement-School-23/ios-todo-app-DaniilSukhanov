@@ -16,25 +16,20 @@ final class NetworkTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = true
-        baseURL = .init(string: "https://beta.mrdekk.ru/todobackend?clientId=0d0970774e284fa8ba9ff70b6b06479a")!
+        baseURL = .init(string: "https://beta.mrdekk.ru/todobackend/list")!
     }
 
     override func tearDownWithError() throws {
         try super.tearDownWithError()
     }
-
-    func testTest() async throws {
-        let url = baseURL
-        let session = URLSession.shared
+    
+    func testAPI() async throws {
+        let networkService = DefaultNetworkingService()
         do {
-            let (data, response) = try await session.dataTask(for: .init(url: url!))
-            let string = String(data: data, encoding: .utf8)
-            XCTAssertNotNil(string, "string == nil")
-            print(string ?? "nil")
-            print(response)
+            try await networkService.addTodoItem(.init(text: "hds", importance: .important, isMake: true))
         } catch {
-            XCTFail("Ошибака \(error)")
+            XCTFail("error: \(error.localizedDescription)")
         }
-
+        
     }
 }
