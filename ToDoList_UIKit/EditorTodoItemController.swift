@@ -137,7 +137,10 @@ class EditorTodoItemController: UIViewController {
     }
 
     @objc func actionButtonDelete() {
-        store.process(.removeItem(store.state.selectedItem!))
+        Task {
+            await store.process(.removeItem(store.state.selectedItem!))
+        }
+        
     }
 
     @objc func actionButtonSave() {
@@ -148,11 +151,15 @@ class EditorTodoItemController: UIViewController {
             deadline: selectedDate,
             id: store.state.selectedItem?.id ?? UUID().uuidString
         )
-        store.process(.addItem(item))
+        Task {
+            await store.process(.addItem(item))
+        }
     }
 
     @objc func actionCancelButton() {
-        store.process(.selectedItem(nil))
+        Task {
+            await store.process(.selectedItem(nil))
+        }
     }
 }
 

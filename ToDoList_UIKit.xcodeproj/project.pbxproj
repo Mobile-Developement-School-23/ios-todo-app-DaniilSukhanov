@@ -56,6 +56,7 @@
 		E4DE61F62A4DB7C000FD1DA5 /* UIView+design.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DE61F52A4DB7C000FD1DA5 /* UIView+design.swift */; };
 		E4DE61F82A4E0CDE00FD1DA5 /* UITextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DE61F72A4E0CDE00FD1DA5 /* UITextEditor.swift */; };
 		E4FCE5C92A4B700C00E2C056 /* UIImage+createView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCE5C82A4B700C00E2C056 /* UIImage+createView.swift */; };
+		E4FE21A02A5714F40067ACE5 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE219F2A5714F40067ACE5 /* NetworkingService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,7 +139,8 @@
 		E4DE61F52A4DB7C000FD1DA5 /* UIView+design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+design.swift"; sourceTree = "<group>"; };
 		E4DE61F72A4E0CDE00FD1DA5 /* UITextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextEditor.swift; sourceTree = "<group>"; };
 		E4FCE5C82A4B700C00E2C056 /* UIImage+createView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+createView.swift"; sourceTree = "<group>"; };
-		FBC65AE47053FEA33A53219C /* Pods_ToDoList_UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoList_UIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4FE219F2A5714F40067ACE5 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 				E462963E2A3D33D600EE3439 /* TodoItem.swift */,
 				E44E99872A40D19500985977 /* Log.swift */,
 				E462963D2A3D33D600EE3439 /* FileCache.swift */,
+				E4FE219F2A5714F40067ACE5 /* NetworkingService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4FE21A02A5714F40067ACE5 /* NetworkingService.swift in Sources */,
 				E468D6442A4F5B5C00DB9567 /* UIBarButtonItem+design.swift in Sources */,
 				E44E998D2A430C1000985977 /* Store.swift in Sources */,
 				E4DE61F42A4DB5A100FD1DA5 /* UIRadioImportance.swift in Sources */,

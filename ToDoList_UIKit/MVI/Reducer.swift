@@ -10,6 +10,6 @@ import Foundation
 protocol Reducer {
     associatedtype ActionType
     associatedtype StateType: State
-    func callAsFunction(state: StateType, action: ActionType) -> StateType
+    func callAsFunction(state: StateType, action: ActionType) async -> StateType
 }
 

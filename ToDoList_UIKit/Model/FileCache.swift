@@ -25,7 +25,7 @@ class FileCache {
         } else {
             logger.info("\(String.logFormat()) добавление предмета \(item.id)")
             items.append(item)
-        }
+        } 
 
     }
 
@@ -38,8 +38,9 @@ class FileCache {
         logger.info("\(String.logFormat()) удаление предмета \(item.id)")
         items.remove(at: items.firstIndex(of: item)!)
     }
-
+    
     // MARK: - JSON
+    
 
     // Сохранение всех TodoItems в json файл
     func saveJSON(filename: String) -> Bool {

@@ -20,8 +20,8 @@ class TodoListStore: Store {
         self.state = .init()
     }
 
-    func process(_ action: ReducerType.TodoListAction) {
-        state = reducer(state: state, action: action)
+    func process(_ action: ReducerType.TodoListAction) async {
+        state = await reducer(state: state, action: action)
         notifySubscribers()
     }
 

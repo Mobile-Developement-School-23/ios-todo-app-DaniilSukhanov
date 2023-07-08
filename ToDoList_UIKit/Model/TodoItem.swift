@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 
 struct TodoItem: Hashable {
     enum Importance: Int {
@@ -20,9 +21,10 @@ struct TodoItem: Hashable {
     let isMake: Bool
     let createdDate: Date
     let changedDate: Date?
-
+    fileprivate static let logger = Logger(category: String(describing: TodoItem.self))
+    
     // в такой последовательности должны передавать данные для csv
-    static let titles = ["id", "text", "importance", "deadline", "isMake", "createdData", "changedData"]
+    static let titles = ["id", "text", "importance", "deadline", "isMake", "createdDate", "changedDate"]
     static let separator = ";"
 
     init(text: String, importance: Importance,
@@ -64,20 +66,25 @@ extension TodoItem {
 
     private static func toTodoItem(data: [String: Any]) -> TodoItem? {
         guard let text = data["text"] as? String else {
+            logger.debug("\(String.logFormat()) неудалось получить text")
             return nil
         }
         guard let isMake = data["isMake"] as? Bool else {
+            logger.debug("\(String.logFormat()) неудалось получить isMake")
             return nil
         }
-        guard let createdDate = data["createdData"] as? Double else {
+        guard let createdDate = data["createdDate"] as? Double else {
+            logger.debug("\(String.logFormat()) неудалось получить createdDate")
             return nil
         }
         var importance: Importance
         if data.keys.contains("importance") {
             guard let value = data["importance"] as? Int else {
+                logger.debug("\(String.logFormat()) неудалось получить importance")
                 return nil
             }
             guard let value = Importance(rawValue: value) else {
+                logger.debug("\(String.logFormat()) неудалось получить importance")
                 return nil
             }
             importance = value
@@ -85,9 +92,11 @@ extension TodoItem {
             importance = .usual
         }
         if !data.keys.contains("id") {
+            logger.debug("\(String.logFormat()) неудалось получить id")
             return nil
         }
         guard let id = data["id"] as? String else {
+            logger.debug("\(String.logFormat()) неудалось получить id")
             return nil
         }
         return TodoItem(
@@ -96,7 +105,7 @@ extension TodoItem {
             isMake: isMake,
             createdDate: createdDate.toDate(),
             deadline: (data["deadline"] as? Double)?.toDate(),
-            changedDate: (data["changedData"] as? Double)?.toDate(),
+            changedDate: (data["changedDate"] as? Double)?.toDate(),
             id: id
         )
     }
@@ -112,9 +121,9 @@ extension TodoItem {
             result["deadline"] = deadline.timeIntervalSinceReferenceDate
         }
         result["isMake"] = isMake
-        result["createdData"] = createdDate.timeIntervalSinceReferenceDate
+        result["createdDate"] = createdDate.timeIntervalSinceReferenceDate
         if let changedDate {
-            result["changedData"] = changedDate.timeIntervalSinceReferenceDate
+            result["changedDate"] = changedDate.timeIntervalSinceReferenceDate
         }
         return result
     }
