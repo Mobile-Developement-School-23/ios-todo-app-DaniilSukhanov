@@ -7,11 +7,13 @@
 
 import Foundation
 import OSLog
+import SQLite3
 
 class FileCache {
     private(set) var items = [TodoItem]()
     private let urlDirSave = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     private let logger = Logger(category: String(describing: FileCache.self))
+    private let database = Database("db.db")
     
     func createFile(filename: String) -> Bool {
         FileManager.default.createFile(atPath: urlDirSave.appending(component: filename).path(), contents: nil)
@@ -117,5 +119,25 @@ extension FileCache {
             append(item)
         }
         return true
+    }
+}
+
+// MARK: - SQLite3
+
+extension FileCache {
+    func save() {
+        for item in items {
+            do {
+                try database.insert(item)
+            } catch {
+                database.update(item)
+            }
+        }
+    }
+    
+    func load() {
+        for item in database.getItems() {
+            append(item)
+        }
     }
 }

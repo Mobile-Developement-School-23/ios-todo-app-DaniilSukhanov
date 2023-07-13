@@ -17,5 +17,3 @@ protocol Store {
     func subscribe(_ closure: @escaping (StateType) -> Void)
     func process(_ action: ReducerType.ActionType) async
 }
-
-

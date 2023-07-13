@@ -7,6 +7,7 @@
 
 import Foundation
 import OSLog
+import SQLite
 
 struct TodoItem: Hashable {
     enum Importance: Int {
@@ -47,10 +48,27 @@ struct TodoItem: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
+    
+    func modifier(
+        text: String? = nil,
+        deadline: Date? = nil,
+        isMake: Bool? = nil,
+        importance: Importance? = nil,
+        changedDate: Date? = nil
+    ) -> TodoItem {
+        TodoItem(
+            text: text ?? self.text,
+            importance: importance ?? self.importance,
+            isMake: isMake ?? self.isMake,
+            createdDate: createdDate,
+            deadline: deadline ?? self.deadline,
+            changedDate: changedDate ?? .now,
+            id: id
+        )
+    }
 }
 
 // MARK: -JSON
-
 extension TodoItem {
     static func parse(json: Any) -> TodoItem? {
         guard let json = json as? [String: Any] else {
@@ -129,7 +147,6 @@ extension TodoItem {
 }
 
 // MARK: -CSV
-
 extension TodoItem {
     static func parse(csv: String) -> TodoItem? {
         let components = csv.components(separatedBy: TodoItem.separator)
@@ -191,5 +208,48 @@ extension Double {
     }
 }
 
+// MARK: - SQLite3
+fileprivate extension String {
+    func escape() -> Self{
+        return "\"\(self)\""
+    }
+}
 
-
+extension TodoItem {
+    static let titlesSqlite = "(\(TodoItem.titles.joined(separator: ", ")))"
+    var sqlReplaceStatement: String {
+        "(\(getValues().joined(separator: ", ")))"
+    }
+    
+    func getValues() -> [String] {
+        var result = [String]()
+        result.append(id.escape())
+        result.append(text.escape())
+        result.append(.init(importance.rawValue))
+        if let deadline {
+            result.append(.init(deadline.timeIntervalSinceReferenceDate))
+        } else {
+            result.append("NULL")
+        }
+        result.append(.init(isMake ? 1 : 0))
+        result.append(.init(createdDate.timeIntervalSinceReferenceDate))
+        if let changedDate {
+            result.append(.init(changedDate.timeIntervalSinceReferenceDate))
+        } else {
+            result.append("NULL")
+        }
+        return result
+    }
+    
+    static func parse(sql row: Row) -> TodoItem? {
+        return .init(
+            text: row[Expression<String>("text")],
+            importance: Importance(rawValue: row[Expression<Int>("importance")]) ?? .usual,
+            isMake: row[Expression<Int>("isMake")] == 0 ? false : true,
+            createdDate: row[Expression<Double>("createdDate")].toDate(),
+            deadline: row[Expression<Double?>("deadline")]?.toDate(),
+            changedDate: row[Expression<Double?>("deadline")]?.toDate(),
+            id: row[Expression<String>("id")]
+        )
+    }
+}
