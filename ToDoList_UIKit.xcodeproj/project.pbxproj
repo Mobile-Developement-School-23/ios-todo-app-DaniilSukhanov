@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B1A22CBC1BC4DC6861F955E6 /* Pods_ToDoList_UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC65AE47053FEA33A53219C /* Pods_ToDoList_UIKit.framework */; };
 		E407D0612A4A1EAE00158B76 /* UITodoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407D0602A4A1EAE00158B76 /* UITodoListCell.swift */; };
 		E43AC6D62A448B8B00C967C0 /* UITodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43AC6D52A448B8B00C967C0 /* UITodoListView.swift */; };
 		E44917462A52E5260071F3DA /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E44917452A52E5260071F3DA /* .swiftlint.yml */; };
@@ -20,6 +19,8 @@
 		E44E99962A43130D00985977 /* TodoListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E99952A43130D00985977 /* TodoListStore.swift */; };
 		E44E99982A43132D00985977 /* TodoListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E99972A43132D00985977 /* TodoListState.swift */; };
 		E44E999A2A43133A00985977 /* TodoListReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E99992A43133A00985977 /* TodoListReducer.swift */; };
+		E45A5C702A6181EF009719D6 /* DCTodoItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A5C6E2A6181EF009719D6 /* DCTodoItem+CoreDataClass.swift */; };
+		E45A5C712A6181EF009719D6 /* DCTodoItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A5C6F2A6181EF009719D6 /* DCTodoItem+CoreDataProperties.swift */; };
 		E462960E2A3D32C800EE3439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E462960D2A3D32C800EE3439 /* AppDelegate.swift */; };
 		E46296102A3D32C800EE3439 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E462960F2A3D32C800EE3439 /* SceneDelegate.swift */; };
 		E46296122A3D32C800EE3439 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46296112A3D32C800EE3439 /* ViewController.swift */; };
@@ -32,25 +33,14 @@
 		E468D6402A4F02D200DB9567 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468D63F2A4F02D200DB9567 /* NSLayoutConstraint.swift */; };
 		E468D6422A4F14DF00DB9567 /* UICounterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468D6412A4F14DF00DB9567 /* UICounterLabel.swift */; };
 		E468D6442A4F5B5C00DB9567 /* UIBarButtonItem+design.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468D6432A4F5B5C00DB9567 /* UIBarButtonItem+design.swift */; };
+		E47273DF2A605849009FFE3D /* DataCoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47273DE2A605849009FFE3D /* DataCoreTest.swift */; };
 		E477BAE92A465E0E00C4352F /* EditorTodoItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477BAE82A465E0E00C4352F /* EditorTodoItemController.swift */; };
-		E49DEA4A2A4F94B700785A43 /* CocoaLumberjack in Frameworks */ = {isa = PBXBuildFile; productRef = E49DEA492A4F94B700785A43 /* CocoaLumberjack */; };
-		E49DEA4C2A4F94B700785A43 /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E49DEA4B2A4F94B700785A43 /* CocoaLumberjackSwift */; };
-		E49DEA4E2A4F94B700785A43 /* CocoaLumberjackSwiftLogBackend in Frameworks */ = {isa = PBXBuildFile; productRef = E49DEA4D2A4F94B700785A43 /* CocoaLumberjackSwiftLogBackend */; };
-		E49DEA6E2A4F94D900785A43 /* SwiftLint.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E49DEA552A4F94D900785A43 /* SwiftLint.debug.xcconfig */; };
-		E49DEA6F2A4F94D900785A43 /* SwiftLint.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E49DEA562A4F94D900785A43 /* SwiftLint.release.xcconfig */; };
-		E49DEA702A4F94D900785A43 /* Pods-ToDoList_UIKit-acknowledgements.markdown in Resources */ = {isa = PBXBuildFile; fileRef = E49DEA582A4F94D900785A43 /* Pods-ToDoList_UIKit-acknowledgements.markdown */; };
-		E49DEA712A4F94D900785A43 /* Pods-ToDoList_UIKit-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = E49DEA592A4F94D900785A43 /* Pods-ToDoList_UIKit-acknowledgements.plist */; };
-		E49DEA722A4F94D900785A43 /* Pods-ToDoList_UIKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E49DEA5A2A4F94D900785A43 /* Pods-ToDoList_UIKit-dummy.m */; };
-		E49DEA732A4F94D900785A43 /* Pods-ToDoList_UIKit.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E49DEA5D2A4F94D900785A43 /* Pods-ToDoList_UIKit.debug.xcconfig */; };
-		E49DEA742A4F94D900785A43 /* Pods-ToDoList_UIKit-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E49DEA5E2A4F94D900785A43 /* Pods-ToDoList_UIKit-Info.plist */; };
-		E49DEA752A4F94D900785A43 /* Pods-ToDoList_UIKit.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E49DEA5F2A4F94D900785A43 /* Pods-ToDoList_UIKit.release.xcconfig */; };
-		E49DEA762A4F94D900785A43 /* Manifest.lock in Resources */ = {isa = PBXBuildFile; fileRef = E49DEA602A4F94D900785A43 /* Manifest.lock */; };
-		E49DEA772A4F94D900785A43 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E49DEA642A4F94D900785A43 /* LICENSE */; };
-		E49DEA782A4F94D900785A43 /* config.yml in Resources */ = {isa = PBXBuildFile; fileRef = E49DEA652A4F94D900785A43 /* config.yml */; };
-		E49DEA792A4F94D900785A43 /* swiftlint in Resources */ = {isa = PBXBuildFile; fileRef = E49DEA662A4F94D900785A43 /* swiftlint */; };
-		E49DEA7A2A4F94D900785A43 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E49DEA6B2A4F94D900785A43 /* Podfile */; };
-		E49DEA7B2A4F94D900785A43 /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = E49DEA6C2A4F94D900785A43 /* Podfile.lock */; };
-		E49DEA7C2A4F94D900785A43 /* ToDoList_UIKit.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = E49DEA6D2A4F94D900785A43 /* ToDoList_UIKit.xcworkspace */; };
+		E4BA38462A5DF04B003BB58C /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = E4BA38452A5DF04B003BB58C /* SQLite */; };
+		E4BA38482A5DF3A6003BB58C /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BA38472A5DF3A6003BB58C /* Database.swift */; };
+		E4BA38612A5EF88F003BB58C /* DatabaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BA38602A5EF88F003BB58C /* DatabaseTest.swift */; };
+		E4C98DB02A606FC200E2AD8B /* CoreDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C98DAF2A606FC200E2AD8B /* CoreDatabase.swift */; };
+		E4C98DB22A6070A900E2AD8B /* ObjDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C98DB12A6070A900E2AD8B /* ObjDatabase.swift */; };
+		E4C98DB52A60801200E2AD8B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4C98DB32A60801200E2AD8B /* DataModel.xcdatamodeld */; };
 		E4DE61F22A4CD59600FD1DA5 /* UIContextualAction+design.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DE61F12A4CD59600FD1DA5 /* UIContextualAction+design.swift */; };
 		E4DE61F42A4DB5A100FD1DA5 /* UIRadioImportance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DE61F32A4DB5A100FD1DA5 /* UIRadioImportance.swift */; };
 		E4DE61F62A4DB7C000FD1DA5 /* UIView+design.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DE61F52A4DB7C000FD1DA5 /* UIView+design.swift */; };
@@ -74,18 +64,9 @@
 			remoteGlobalIDString = E46296092A3D32C800EE3439;
 			remoteInfo = ToDoList_UIKit;
 		};
-		E49DEA692A4F94D900785A43 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E49DEA502A4F94D900785A43 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 304023682E6DF57D9D9121EA6EB5F510;
-			remoteInfo = "Pods-ToDoList_UIKit";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		299084380D10769A952E3606 /* Pods-ToDoList_UIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList_UIKit.release.xcconfig"; path = "Target Support Files/Pods-ToDoList_UIKit/Pods-ToDoList_UIKit.release.xcconfig"; sourceTree = "<group>"; };
-		8421578911A4B94FF697A1C4 /* Pods-ToDoList_UIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList_UIKit.debug.xcconfig"; path = "Target Support Files/Pods-ToDoList_UIKit/Pods-ToDoList_UIKit.debug.xcconfig"; sourceTree = "<group>"; };
 		E407D0602A4A1EAE00158B76 /* UITodoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITodoListCell.swift; sourceTree = "<group>"; };
 		E42AF94F2A5580DE003F47C9 /* ToDoList_UIKitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDoList_UIKitTests.xctestplan; sourceTree = "<group>"; };
 		E43AC6D52A448B8B00C967C0 /* UITodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITodoListView.swift; sourceTree = "<group>"; };
@@ -99,15 +80,17 @@
 		E44E99952A43130D00985977 /* TodoListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListStore.swift; sourceTree = "<group>"; };
 		E44E99972A43132D00985977 /* TodoListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListState.swift; sourceTree = "<group>"; };
 		E44E99992A43133A00985977 /* TodoListReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListReducer.swift; sourceTree = "<group>"; };
-		E462960A2A3D32C800EE3439 /* ToDoList_UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList_UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E45A5C6E2A6181EF009719D6 /* DCTodoItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DCTodoItem+CoreDataClass.swift"; path = "ToDoList_UIKit/DCTodoItem+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		E45A5C6F2A6181EF009719D6 /* DCTodoItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DCTodoItem+CoreDataProperties.swift"; path = "ToDoList_UIKit/DCTodoItem+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		E45A5C722A61E00F009719D6 /* ToDoList_UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList_UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E462960D2A3D32C800EE3439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E462960F2A3D32C800EE3439 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E46296112A3D32C800EE3439 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E46296162A3D32CC00EE3439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E462961B2A3D32CC00EE3439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E46296202A3D32CC00EE3439 /* ToDoList_UIKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoList_UIKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E46296202A3D32CC00EE3439 /* ToDoList_UIKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ToDoList_UIKitTests.xctest; path = "/Users/daniilsuhanov/AppleProjects/deleteTodolist/build/Debug-iphoneos/ToDoList_UIKitTests.xctest"; sourceTree = "<absolute>"; };
 		E46296242A3D32CC00EE3439 /* ToDoList_UIKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList_UIKitTests.swift; sourceTree = "<group>"; };
-		E462962A2A3D32CC00EE3439 /* ToDoList_UIKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoList_UIKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E462962A2A3D32CC00EE3439 /* ToDoList_UIKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ToDoList_UIKitUITests.xctest; path = "/Users/daniilsuhanov/AppleProjects/deleteTodolist/build/Debug-iphoneos/ToDoList_UIKitUITests.xctest"; sourceTree = "<absolute>"; };
 		E462962E2A3D32CC00EE3439 /* ToDoList_UIKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList_UIKitUITests.swift; sourceTree = "<group>"; };
 		E46296302A3D32CC00EE3439 /* ToDoList_UIKitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList_UIKitUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E462963D2A3D33D600EE3439 /* FileCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileCache.swift; sourceTree = "<group>"; };
@@ -115,32 +98,19 @@
 		E468D63F2A4F02D200DB9567 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
 		E468D6412A4F14DF00DB9567 /* UICounterLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICounterLabel.swift; sourceTree = "<group>"; };
 		E468D6432A4F5B5C00DB9567 /* UIBarButtonItem+design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+design.swift"; sourceTree = "<group>"; };
+		E47273DE2A605849009FFE3D /* DataCoreTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCoreTest.swift; sourceTree = "<group>"; };
 		E477BAE82A465E0E00C4352F /* EditorTodoItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorTodoItemController.swift; sourceTree = "<group>"; };
-		E49DEA502A4F94D900785A43 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Pods.xcodeproj; sourceTree = "<group>"; };
-		E49DEA552A4F94D900785A43 /* SwiftLint.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SwiftLint.debug.xcconfig; sourceTree = "<group>"; };
-		E49DEA562A4F94D900785A43 /* SwiftLint.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SwiftLint.release.xcconfig; sourceTree = "<group>"; };
-		E49DEA582A4F94D900785A43 /* Pods-ToDoList_UIKit-acknowledgements.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "Pods-ToDoList_UIKit-acknowledgements.markdown"; sourceTree = "<group>"; };
-		E49DEA592A4F94D900785A43 /* Pods-ToDoList_UIKit-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Pods-ToDoList_UIKit-acknowledgements.plist"; sourceTree = "<group>"; };
-		E49DEA5A2A4F94D900785A43 /* Pods-ToDoList_UIKit-dummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Pods-ToDoList_UIKit-dummy.m"; sourceTree = "<group>"; };
-		E49DEA5B2A4F94D900785A43 /* Pods-ToDoList_UIKit.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ToDoList_UIKit.modulemap"; sourceTree = "<group>"; };
-		E49DEA5C2A4F94D900785A43 /* Pods-ToDoList_UIKit-umbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Pods-ToDoList_UIKit-umbrella.h"; sourceTree = "<group>"; };
-		E49DEA5D2A4F94D900785A43 /* Pods-ToDoList_UIKit.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Pods-ToDoList_UIKit.debug.xcconfig"; sourceTree = "<group>"; };
-		E49DEA5E2A4F94D900785A43 /* Pods-ToDoList_UIKit-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Pods-ToDoList_UIKit-Info.plist"; sourceTree = "<group>"; };
-		E49DEA5F2A4F94D900785A43 /* Pods-ToDoList_UIKit.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Pods-ToDoList_UIKit.release.xcconfig"; sourceTree = "<group>"; };
-		E49DEA602A4F94D900785A43 /* Manifest.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Manifest.lock; sourceTree = "<group>"; };
-		E49DEA642A4F94D900785A43 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		E49DEA652A4F94D900785A43 /* config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = config.yml; sourceTree = "<group>"; };
-		E49DEA662A4F94D900785A43 /* swiftlint */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = swiftlint; sourceTree = "<group>"; };
-		E49DEA6B2A4F94D900785A43 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
-		E49DEA6C2A4F94D900785A43 /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
-		E49DEA6D2A4F94D900785A43 /* ToDoList_UIKit.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = ToDoList_UIKit.xcworkspace; sourceTree = "<group>"; };
+		E4BA38472A5DF3A6003BB58C /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		E4BA38602A5EF88F003BB58C /* DatabaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTest.swift; sourceTree = "<group>"; };
+		E4C98DAF2A606FC200E2AD8B /* CoreDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDatabase.swift; sourceTree = "<group>"; };
+		E4C98DB12A6070A900E2AD8B /* ObjDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjDatabase.swift; sourceTree = "<group>"; };
+		E4C98DB42A60801200E2AD8B /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		E4DE61F12A4CD59600FD1DA5 /* UIContextualAction+design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIContextualAction+design.swift"; sourceTree = "<group>"; };
 		E4DE61F32A4DB5A100FD1DA5 /* UIRadioImportance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRadioImportance.swift; sourceTree = "<group>"; };
 		E4DE61F52A4DB7C000FD1DA5 /* UIView+design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+design.swift"; sourceTree = "<group>"; };
 		E4DE61F72A4E0CDE00FD1DA5 /* UITextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextEditor.swift; sourceTree = "<group>"; };
 		E4FCE5C82A4B700C00E2C056 /* UIImage+createView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+createView.swift"; sourceTree = "<group>"; };
 		E4FE219F2A5714F40067ACE5 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,10 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E49DEA4A2A4F94B700785A43 /* CocoaLumberjack in Frameworks */,
-				B1A22CBC1BC4DC6861F955E6 /* Pods_ToDoList_UIKit.framework in Frameworks */,
-				E49DEA4E2A4F94B700785A43 /* CocoaLumberjackSwiftLogBackend in Frameworks */,
-				E49DEA4C2A4F94B700785A43 /* CocoaLumberjackSwift in Frameworks */,
+				E4BA38462A5DF04B003BB58C /* SQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,30 +139,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A0FAA286577B0EA9585E11D4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FBC65AE47053FEA33A53219C /* Pods_ToDoList_UIKit.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A74AEEDB9514609BBCA7F2BC /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8421578911A4B94FF697A1C4 /* Pods-ToDoList_UIKit.debug.xcconfig */,
-				299084380D10769A952E3606 /* Pods-ToDoList_UIKit.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		E44E99892A40F83400985977 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E47273C82A603380009FFE3D /* CoreData */,
 				E462963E2A3D33D600EE3439 /* TodoItem.swift */,
 				E44E99872A40D19500985977 /* Log.swift */,
 				E462963D2A3D33D600EE3439 /* FileCache.swift */,
 				E4FE219F2A5714F40067ACE5 /* NetworkingService.swift */,
+				E4BA38472A5DF3A6003BB58C /* Database.swift */,
+				E4C98DB12A6070A900E2AD8B /* ObjDatabase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -257,20 +210,8 @@
 				E462960C2A3D32C800EE3439 /* ToDoList_UIKit */,
 				E46296232A3D32CC00EE3439 /* ToDoList_UIKitTests */,
 				E462962D2A3D32CC00EE3439 /* ToDoList_UIKitUITests */,
-				E462960B2A3D32C800EE3439 /* Products */,
-				A74AEEDB9514609BBCA7F2BC /* Pods */,
-				A0FAA286577B0EA9585E11D4 /* Frameworks */,
+				E45A5C722A61E00F009719D6 /* ToDoList_UIKit.app */,
 			);
-			sourceTree = "<group>";
-		};
-		E462960B2A3D32C800EE3439 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E462960A2A3D32C800EE3439 /* ToDoList_UIKit.app */,
-				E46296202A3D32CC00EE3439 /* ToDoList_UIKitTests.xctest */,
-				E462962A2A3D32CC00EE3439 /* ToDoList_UIKitUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		E462960C2A3D32C800EE3439 /* ToDoList_UIKit */ = {
@@ -300,6 +241,8 @@
 			children = (
 				E46296242A3D32CC00EE3439 /* ToDoList_UIKitTests.swift */,
 				E44917492A5329810071F3DA /* NetworkTests.swift */,
+				E4BA38602A5EF88F003BB58C /* DatabaseTest.swift */,
+				E47273DE2A605849009FFE3D /* DataCoreTest.swift */,
 			);
 			path = ToDoList_UIKitTests;
 			sourceTree = "<group>";
@@ -313,82 +256,15 @@
 			path = ToDoList_UIKitUITests;
 			sourceTree = "<group>";
 		};
-		E49DEA4F2A4F94D900785A43 /* Pods */ = {
+		E47273C82A603380009FFE3D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				E49DEA502A4F94D900785A43 /* Pods.xcodeproj */,
-				E49DEA532A4F94D900785A43 /* Target Support Files */,
-				E49DEA602A4F94D900785A43 /* Manifest.lock */,
-				E49DEA612A4F94D900785A43 /* Local Podspecs */,
-				E49DEA622A4F94D900785A43 /* Headers */,
-				E49DEA632A4F94D900785A43 /* SwiftLint */,
+				E45A5C6E2A6181EF009719D6 /* DCTodoItem+CoreDataClass.swift */,
+				E45A5C6F2A6181EF009719D6 /* DCTodoItem+CoreDataProperties.swift */,
+				E4C98DB32A60801200E2AD8B /* DataModel.xcdatamodeld */,
+				E4C98DAF2A606FC200E2AD8B /* CoreDatabase.swift */,
 			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		E49DEA512A4F94D900785A43 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E49DEA6A2A4F94D900785A43 /* Pods_ToDoList_UIKit.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		E49DEA532A4F94D900785A43 /* Target Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E49DEA542A4F94D900785A43 /* SwiftLint */,
-				E49DEA572A4F94D900785A43 /* Pods-ToDoList_UIKit */,
-			);
-			path = "Target Support Files";
-			sourceTree = "<group>";
-		};
-		E49DEA542A4F94D900785A43 /* SwiftLint */ = {
-			isa = PBXGroup;
-			children = (
-				E49DEA552A4F94D900785A43 /* SwiftLint.debug.xcconfig */,
-				E49DEA562A4F94D900785A43 /* SwiftLint.release.xcconfig */,
-			);
-			path = SwiftLint;
-			sourceTree = "<group>";
-		};
-		E49DEA572A4F94D900785A43 /* Pods-ToDoList_UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				E49DEA582A4F94D900785A43 /* Pods-ToDoList_UIKit-acknowledgements.markdown */,
-				E49DEA592A4F94D900785A43 /* Pods-ToDoList_UIKit-acknowledgements.plist */,
-				E49DEA5A2A4F94D900785A43 /* Pods-ToDoList_UIKit-dummy.m */,
-				E49DEA5B2A4F94D900785A43 /* Pods-ToDoList_UIKit.modulemap */,
-				E49DEA5C2A4F94D900785A43 /* Pods-ToDoList_UIKit-umbrella.h */,
-				E49DEA5D2A4F94D900785A43 /* Pods-ToDoList_UIKit.debug.xcconfig */,
-				E49DEA5E2A4F94D900785A43 /* Pods-ToDoList_UIKit-Info.plist */,
-				E49DEA5F2A4F94D900785A43 /* Pods-ToDoList_UIKit.release.xcconfig */,
-			);
-			path = "Pods-ToDoList_UIKit";
-			sourceTree = "<group>";
-		};
-		E49DEA612A4F94D900785A43 /* Local Podspecs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Local Podspecs";
-			sourceTree = "<group>";
-		};
-		E49DEA622A4F94D900785A43 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		E49DEA632A4F94D900785A43 /* SwiftLint */ = {
-			isa = PBXGroup;
-			children = (
-				E49DEA642A4F94D900785A43 /* LICENSE */,
-				E49DEA652A4F94D900785A43 /* config.yml */,
-				E49DEA662A4F94D900785A43 /* swiftlint */,
-			);
-			path = SwiftLint;
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,12 +274,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E46296342A3D32CC00EE3439 /* Build configuration list for PBXNativeTarget "ToDoList_UIKit" */;
 			buildPhases = (
-				DD801A77911C5EF3B34DDBD6 /* [CP] Check Pods Manifest.lock */,
 				E46296062A3D32C800EE3439 /* Sources */,
 				E46296072A3D32C800EE3439 /* Frameworks */,
 				E46296082A3D32C800EE3439 /* Resources */,
 				E44917442A52E2980071F3DA /* ShellScript */,
-
 			);
 			buildRules = (
 			);
@@ -411,12 +285,10 @@
 			);
 			name = ToDoList_UIKit;
 			packageProductDependencies = (
-				E49DEA492A4F94B700785A43 /* CocoaLumberjack */,
-				E49DEA4B2A4F94B700785A43 /* CocoaLumberjackSwift */,
-				E49DEA4D2A4F94B700785A43 /* CocoaLumberjackSwiftLogBackend */,
+				E4BA38452A5DF04B003BB58C /* SQLite */,
 			);
 			productName = ToDoList_UIKit;
-			productReference = E462960A2A3D32C800EE3439 /* ToDoList_UIKit.app */;
+			productReference = E45A5C722A61E00F009719D6 /* ToDoList_UIKit.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E462961F2A3D32CC00EE3439 /* ToDoList_UIKitTests */ = {
@@ -488,16 +360,10 @@
 			);
 			mainGroup = E46296012A3D32C800EE3439;
 			packageReferences = (
-				E49DEA482A4F94B700785A43 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
+				E4BA38442A5DF04B003BB58C /* XCRemoteSwiftPackageReference "SQLite" */,
 			);
-			productRefGroup = E462960B2A3D32C800EE3439 /* Products */;
+			productRefGroup = E46296012A3D32C800EE3439;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = E49DEA512A4F94D900785A43 /* Products */;
-					ProjectRef = E49DEA502A4F94D900785A43 /* Pods.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				E46296092A3D32C800EE3439 /* ToDoList_UIKit */,
@@ -507,16 +373,6 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		E49DEA6A2A4F94D900785A43 /* Pods_ToDoList_UIKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Pods_ToDoList_UIKit.framework;
-			remoteRef = E49DEA692A4F94D900785A43 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		E46296082A3D32C800EE3439 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -524,9 +380,6 @@
 			files = (
 				E44917462A52E5260071F3DA /* .swiftlint.yml in Resources */,
 				E46296172A3D32CC00EE3439 /* Assets.xcassets in Resources */,
-				E49DEA712A4F94D900785A43 /* Pods-ToDoList_UIKit-acknowledgements.plist in Resources */,
-				E49DEA742A4F94D900785A43 /* Pods-ToDoList_UIKit-Info.plist in Resources */,
-				E49DEA7C2A4F94D900785A43 /* ToDoList_UIKit.xcworkspace in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,7 +400,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-
 		E44917442A52E2980071F3DA /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -556,7 +408,6 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-
 			);
 			outputFileListPaths = (
 			);
@@ -565,7 +416,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -581,9 +431,11 @@
 				E46296402A3D33D600EE3439 /* TodoItem.swift in Sources */,
 				E44E99882A40D19500985977 /* Log.swift in Sources */,
 				E46296122A3D32C800EE3439 /* ViewController.swift in Sources */,
+				E4C98DB02A606FC200E2AD8B /* CoreDatabase.swift in Sources */,
 				E4DE61F62A4DB7C000FD1DA5 /* UIView+design.swift in Sources */,
 				E462960E2A3D32C800EE3439 /* AppDelegate.swift in Sources */,
 				E4DE61F22A4CD59600FD1DA5 /* UIContextualAction+design.swift in Sources */,
+				E45A5C702A6181EF009719D6 /* DCTodoItem+CoreDataClass.swift in Sources */,
 				E477BAE92A465E0E00C4352F /* EditorTodoItemController.swift in Sources */,
 				E44E999A2A43133A00985977 /* TodoListReducer.swift in Sources */,
 				E44917482A52E9F60071F3DA /* URLSession+dataTask.swift in Sources */,
@@ -593,12 +445,15 @@
 				E43AC6D62A448B8B00C967C0 /* UITodoListView.swift in Sources */,
 				E44E99962A43130D00985977 /* TodoListStore.swift in Sources */,
 				E44E99982A43132D00985977 /* TodoListState.swift in Sources */,
-				E49DEA722A4F94D900785A43 /* Pods-ToDoList_UIKit-dummy.m in Sources */,
+				E4C98DB52A60801200E2AD8B /* DataModel.xcdatamodeld in Sources */,
 				E46296102A3D32C800EE3439 /* SceneDelegate.swift in Sources */,
 				E4FCE5C92A4B700C00E2C056 /* UIImage+createView.swift in Sources */,
 				E407D0612A4A1EAE00158B76 /* UITodoListCell.swift in Sources */,
 				E468D6422A4F14DF00DB9567 /* UICounterLabel.swift in Sources */,
+				E45A5C712A6181EF009719D6 /* DCTodoItem+CoreDataProperties.swift in Sources */,
 				E44E998F2A430C3500985977 /* State.swift in Sources */,
+				E4C98DB22A6070A900E2AD8B /* ObjDatabase.swift in Sources */,
+				E4BA38482A5DF3A6003BB58C /* Database.swift in Sources */,
 				E4DE61F82A4E0CDE00FD1DA5 /* UITextEditor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -607,6 +462,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E47273DF2A605849009FFE3D /* DataCoreTest.swift in Sources */,
+				E4BA38612A5EF88F003BB58C /* DatabaseTest.swift in Sources */,
 				E449174A2A5329810071F3DA /* NetworkTests.swift in Sources */,
 				E46296252A3D32CC00EE3439 /* ToDoList_UIKitTests.swift in Sources */,
 			);
@@ -753,7 +610,6 @@
 		};
 		E46296352A3D32CC00EE3439 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8421578911A4B94FF697A1C4 /* Pods-ToDoList_UIKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -783,7 +639,6 @@
 		};
 		E46296362A3D32CC00EE3439 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 299084380D10769A952E3606 /* Pods-ToDoList_UIKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -931,33 +786,36 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E49DEA482A4F94B700785A43 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */ = {
+		E4BA38442A5DF04B003BB58C /* XCRemoteSwiftPackageReference "SQLite" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/CocoaLumberjack/CocoaLumberjack";
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift?ysclid=ljyqdldugr363007361";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				minimumVersion = 0.14.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E49DEA492A4F94B700785A43 /* CocoaLumberjack */ = {
+		E4BA38452A5DF04B003BB58C /* SQLite */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E49DEA482A4F94B700785A43 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
-			productName = CocoaLumberjack;
-		};
-		E49DEA4B2A4F94B700785A43 /* CocoaLumberjackSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E49DEA482A4F94B700785A43 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
-			productName = CocoaLumberjackSwift;
-		};
-		E49DEA4D2A4F94B700785A43 /* CocoaLumberjackSwiftLogBackend */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E49DEA482A4F94B700785A43 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
-			productName = CocoaLumberjackSwiftLogBackend;
+			package = E4BA38442A5DF04B003BB58C /* XCRemoteSwiftPackageReference "SQLite" */;
+			productName = SQLite;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		E4C98DB32A60801200E2AD8B /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E4C98DB42A60801200E2AD8B /* DataModel.xcdatamodel */,
+			);
+			currentVersion = E4C98DB42A60801200E2AD8B /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E46296022A3D32C800EE3439 /* Project object */;
 }

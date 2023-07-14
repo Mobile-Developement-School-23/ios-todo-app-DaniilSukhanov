@@ -19,6 +19,7 @@
   "testTargets" : [
     {
       "skippedTests" : [
+        "NetworkTests",
         "ToDoList_UIKitTests"
       ],
       "target" : {

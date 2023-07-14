@@ -24,7 +24,7 @@ final class ToDoList_UIKitTests: XCTestCase {
             text: "Test", importance: .unimportant,
             isMake: true, createdDate: date
         )
-        fileCache = .init()
+        fileCache = .init(Database())
         items = .init()
         for i in 0..<11 {
             let item = TodoItem(
