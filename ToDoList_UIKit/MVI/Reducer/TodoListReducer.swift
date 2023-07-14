@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CocoaLumberjackSwift
 
 class TodoListReducer: Reducer {
     enum TodoListAction {
@@ -35,18 +36,21 @@ class TodoListReducer: Reducer {
         var newState = state
         switch action {
         case .addItem(let item):
+            DDLogInfo("\(String.logFormat()) выполнение addItem")
             newState.selectedItem = nil
             newState.fileCache.append(item)
             newState.fileCache.save()
             // await networkLoad(state: state, newState: &newState)
             // newState.fileCache.save()
         case .removeItem(let item):
+            DDLogInfo("\(String.logFormat()) выполнение removeItem")
             newState.selectedItem = nil
             newState.fileCache.remove(id: item.id)
             newState.fileCache.save()
             // await networkLoad(state: state, newState: &newState)
             // newState.fileCache.save()
         case .selectedItem(let item):
+            DDLogInfo("\(String.logFormat()) выполнение selectedItem")
             newState.selectedItem = item
         case .loadItems:
             newState.fileCache.load()
@@ -64,9 +68,10 @@ class TodoListReducer: Reducer {
             newState.fileCache.save()
             // await networkLoad(state: state, newState: &newState)
         case .showMaking(let flag):
+            DDLogInfo("\(String.logFormat()) выполнение showMaking")
             newState.isShowingMakeItem = flag
             // await networkLoad(state: state, newState: &newState)
         }
-        return newState 
+        return newState
     }
 }

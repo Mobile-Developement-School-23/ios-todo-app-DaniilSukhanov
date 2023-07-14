@@ -6,7 +6,7 @@
 //
 
 import Foundation
- 
+
 struct TodoListState: State {
     // TODO: Можно заменить CoreDatabase на Database (и наоборот)
     var fileCache = FileCache(CoreDatabase())

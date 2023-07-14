@@ -15,7 +15,7 @@ struct TodoItem: Hashable {
         // unimportant - неважная, usual - обычная, important - важная
         case unimportant, usual, important
     }
-    
+
     let id: String
     let text: String
     let importance: Importance
@@ -28,7 +28,7 @@ struct TodoItem: Hashable {
     // в такой последовательности должны передавать данные для csv
     static let titles = ["id", "text", "importance", "deadline", "isMake", "createdDate", "changedDate"]
     static let separator = ";"
-    
+
     init(text: String, importance: Importance,
          isMake: Bool, createdDate: Date = .now,
          deadline: Date? = nil, changedDate: Date? = nil, id: String = UUID().uuidString) {
@@ -40,6 +40,7 @@ struct TodoItem: Hashable {
         self.createdDate = createdDate
         self.changedDate = changedDate
     } 
+
 
     // Нужно для FileCache
     static func == (obj1: Self, obj2: Self) -> Bool {
@@ -127,8 +128,8 @@ extension TodoItem {
             id: id
         )
     }
-    
-    private func toDictionary() -> [String : Any] {
+
+    private func toDictionary() -> [String: Any] {
         var result = [String: Any]()
         result["id"] = id
         result["text"] = text
@@ -184,7 +185,7 @@ extension TodoItem {
             id: id
         )
     }
-    
+
     var csv: String {
         let dict = toDictionary()
         let data: [String] = TodoItem.titles.map {

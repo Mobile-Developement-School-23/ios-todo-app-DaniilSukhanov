@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension NSLayoutConstraint {
-    func withPriority(_ priority: Float) -> Self{
+    func withPriority(_ priority: Float) -> Self {
         self.priority = .init(priority)
         return self
     }

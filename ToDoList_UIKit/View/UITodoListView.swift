@@ -9,7 +9,7 @@ import Foundation
 
 class UITodoListView: UITableView, UITableViewDataSource, UITableViewDelegate {
     var store: TodoListStore
-    
+
     init(store: TodoListStore) {
         self.store = store
         super.init(frame: .zero, style: .plain)
@@ -18,29 +18,29 @@ class UITodoListView: UITableView, UITableViewDataSource, UITableViewDelegate {
         }
         setupView()
     }
-     
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func update(state: TodoListState) {
         DispatchQueue.main.async {
             self.setNeedsDisplay()
             self.reloadData()
         }
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         store.state.fileCache.items.count
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = store.state.fileCache.items[indexPath.row]
         Task {
             await store.process(.selectedItem(item))
         }
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let item = store.state.fileCache.items[indexPath.row]
         if item.isMake && !store.state.isShowingMakeItem {
@@ -49,7 +49,7 @@ class UITodoListView: UITableView, UITableViewDataSource, UITableViewDelegate {
             return UITableView.automaticDimension
         }
     }
-    
+
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         .init(
             actions: [
@@ -74,7 +74,7 @@ class UITodoListView: UITableView, UITableViewDataSource, UITableViewDelegate {
             ]
         )
     }
-    
+
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         .init(
             actions: [
@@ -89,7 +89,7 @@ class UITodoListView: UITableView, UITableViewDataSource, UITableViewDelegate {
             ]
         )
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = store.state.fileCache.items[indexPath.row]
         let cell = self.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath) as! UITodoListCell
@@ -99,7 +99,7 @@ class UITodoListView: UITableView, UITableViewDataSource, UITableViewDelegate {
         }
         return cell
     }
-    
+
     private func setupView() {
         delegate = self
         dataSource = self

@@ -9,13 +9,13 @@ import XCTest
 @testable import ToDoList_UIKit
 
 final class ToDoList_UIKitTests: XCTestCase {
-    
+
     var date: Date!
     var todoItem: TodoItem!
     var fileCache: FileCache!
     var items: [TodoItem]!
     var urlJSON: URL!
-    
+
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = true
@@ -50,7 +50,7 @@ final class ToDoList_UIKitTests: XCTestCase {
         urlJSON = nil
         try super.tearDownWithError()
     }
-    
+
     func testUncorrectJson() throws {
         let jsons: [[String: Any]] = [
             [
@@ -88,13 +88,13 @@ final class ToDoList_UIKitTests: XCTestCase {
                 "isMake": "false",
                 "text": "very meaningful text",
                 "changedData": 777.777
-            ],
+            ]
         ]
         for (i, json) in jsons.enumerated() {
             XCTAssert(TodoItem.parse(json: json) == nil, "ошибка в \(i)")
         }
     }
-    
+
     func testAttr() throws {
         let dict: [String: Any] = [
             "id": "qwer54",
@@ -128,7 +128,7 @@ final class ToDoList_UIKitTests: XCTestCase {
             "text": "very meaningful text",
             "changedData": 777.777
         ]
-        
+
         guard let createdTodoItem = TodoItem.parse(json: json) else {
             XCTAssert(false, "Парсер не правильно работает")
             return
@@ -141,29 +141,29 @@ final class ToDoList_UIKitTests: XCTestCase {
         XCTAssert(createdTodoItem.id == "test")
         XCTAssert(createdTodoItem.createdDate == Date(timeIntervalSinceReferenceDate: 0.0))
     }
-    
+
     private func eqTest(_ newTodoItem: TodoItem) throws {
         XCTAssert(newTodoItem.id == todoItem.id,
                   "\(String(describing: newTodoItem.id)) != \(String(describing: todoItem.id))")
-        
+
         XCTAssert(newTodoItem.changedDate == todoItem.changedDate,
                   "\(String(describing: newTodoItem.changedDate)) != \(String(describing: todoItem.changedDate))")
-        
+
         XCTAssert(newTodoItem.createdDate == todoItem.createdDate,
                   "\(String(describing: newTodoItem.createdDate)) != \(String(describing: todoItem.createdDate))")
         XCTAssert(newTodoItem.deadline == todoItem.deadline,
                   "\(String(describing: newTodoItem.deadline)) != \(String(describing: todoItem.deadline))")
-        
+
         XCTAssert(newTodoItem.importance == todoItem.importance,
                   "\(String(describing: newTodoItem.importance)) != \(String(describing: todoItem.importance))")
-        
+
         XCTAssert(newTodoItem.isMake == todoItem.isMake,
                   "\(String(describing: newTodoItem.isMake)) != \(String(describing: todoItem.isMake))")
-        
+
         XCTAssert(newTodoItem.text == todoItem.text,
                   "\(String(describing: newTodoItem.text)) != \(String(describing: todoItem.text))")
     }
-    
+
     func testCSV() throws {
         let data = todoItem.csv
         let newTodoItem = TodoItem.parse(csv: data)!
@@ -180,9 +180,9 @@ final class ToDoList_UIKitTests: XCTestCase {
         XCTAssert(item.changedDate == nil)
         XCTAssert(item.id == "id")
         XCTAssert(item.createdDate == Date(timeIntervalSinceReferenceDate: 666.666))
-        
+
     }
-    
+
     func testFileCache() throws {
         XCTAssert(fileCache.saveJSON(filename: "json"))
         let fileData1 = try! String(contentsOf: urlJSON)
