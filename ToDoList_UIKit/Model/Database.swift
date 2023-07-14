@@ -13,15 +13,15 @@ enum DatabaseError: Error {
     case sameID
 }
 
-final class Database {
+final class Database: ObjDatabase {
     private let db: Connection
     static let nameTable = "TodoItem"
     static let baseDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     fileprivate let logger = Logger(category: String(describing: Database.self))
     let url: URL
     
-    init(_ name: String, filepath: URL = Database.baseDirectory) {
-        url = filepath.appending(component: name)
+    init() {
+        url = Database.baseDirectory.appending(component: "db.db")
         logger.info("\(String.logFormat()) Подключение к базе данных: \(self.url.path())")
         db = try! Connection(url.path())
         try? createTables()
@@ -81,7 +81,11 @@ final class Database {
         SET \(set)
         WHERE id = "\(item.id)"
         """
-        try! db.prepare(request).run()
+        do {
+            try db.prepare(request).run()
+        } catch {
+            logger.info("\(String.logFormat()) не удалось выполнить команду: \(error)")
+        }
     }
     
     func delete(_ item: TodoItem) {
@@ -94,7 +98,11 @@ final class Database {
         DELETE FROM \(Database.nameTable)
         WHERE id = "\(id)"
         """
-        try! db.prepare(request).run()
+        do {
+            try db.prepare(request).run()
+        } catch {
+            logger.info("\(String.logFormat()) не удалось выполнить команду: \(error)")
+        }
     }
     
 }

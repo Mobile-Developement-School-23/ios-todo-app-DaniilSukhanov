@@ -13,7 +13,11 @@ class FileCache {
     private(set) var items = [TodoItem]()
     private let urlDirSave = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     private let logger = Logger(category: String(describing: FileCache.self))
-    private let database = Database("db.db")
+    private let database: ObjDatabase
+    
+    init(_ database: ObjDatabase) {
+        self.database = database
+    }
     
     func createFile(filename: String) -> Bool {
         FileManager.default.createFile(atPath: urlDirSave.appending(component: filename).path(), contents: nil)
@@ -39,6 +43,7 @@ class FileCache {
         }
         logger.info("\(String.logFormat()) удаление предмета \(item.id)")
         items.remove(at: items.firstIndex(of: item)!)
+        database.delete(id)
     }
     
     // MARK: - JSON
@@ -122,7 +127,7 @@ extension FileCache {
     }
 }
 
-// MARK: - SQLite3
+// MARK: - SQLite & CoreData
 
 extension FileCache {
     func save() {

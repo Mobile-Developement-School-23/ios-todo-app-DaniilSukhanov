@@ -8,6 +8,7 @@
 import Foundation
 import OSLog
 import SQLite
+import CoreData
 
 struct TodoItem: Hashable {
     enum Importance: Int {
@@ -208,9 +209,9 @@ extension Double {
     }
 }
 
-// MARK: - SQLite3
+// MARK: - SQLite
 fileprivate extension String {
-    func escape() -> Self{
+    func escape() -> Self {
         return "\"\(self)\""
     }
 }
@@ -251,5 +252,33 @@ extension TodoItem {
             changedDate: row[Expression<Double?>("deadline")]?.toDate(),
             id: row[Expression<String>("id")]
         )
+    }
+}
+
+// MARK: - CoreData
+
+extension TodoItem {
+    static func parse(coreDataObj: DCTodoItem) -> TodoItem? {
+        .init(
+            text: coreDataObj.text,
+            importance: Importance(rawValue: Int(coreDataObj.importance)) ?? .usual,
+            isMake: coreDataObj.isMake,
+            createdDate: coreDataObj.createdDate,
+            deadline: coreDataObj.deadline,
+            changedDate: coreDataObj.changedDate,
+            id: coreDataObj.id
+        )
+    }
+    
+    func getCoreDataObj(context: NSManagedObjectContext) -> DCTodoItem {
+        let result = DCTodoItem(context: context)
+        result.id = id
+        result.deadline = deadline
+        result.importance = Int16(importance.rawValue)
+        result.text = text
+        result.isMake = isMake
+        result.changedDate = changedDate
+        result.createdDate = createdDate
+        return result
     }
 }

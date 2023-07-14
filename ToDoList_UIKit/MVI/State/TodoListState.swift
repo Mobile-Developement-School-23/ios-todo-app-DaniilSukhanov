@@ -8,7 +8,8 @@
 import Foundation
  
 struct TodoListState: State {
-    var fileCache = FileCache()
+    // TODO: Можно заменить CoreDatabase на Database (и наоборот)
+    var fileCache = FileCache(CoreDatabase())
     var selectedItem: TodoItem?
     var isShowingMakeItem = false
     var isDirty = false

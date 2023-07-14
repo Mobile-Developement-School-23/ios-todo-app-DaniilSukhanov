@@ -1,19 +1,18 @@
 //
-//  DatabaseTests.swift
+//  DataCoreTest.swift
 //  ToDoList_UIKitTests
 //
-//  Created by Даниил Суханов on 12.07.2023.
+//  Created by Даниил Суханов on 13.07.2023.
 //
 
 import Foundation
-import SQLite
 import XCTest
 @testable import ToDoList_UIKit
 
-// TODO: Внимание. Если запустить приложение без теста и что-то сделать (добавить задачу, например),
+// TODO: Внимание. Если запустить приложение и что-то сделать (добавить задачу, например),
 // TODO: то тесты, скорее всего, не пройдут. Требуется повторный запуск тестов.
-final class DatabaseTest: XCTestCase {
-    var database: Database!
+final class DataCoreTest: XCTestCase {
+    var database: CoreDatabase!
     
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -23,9 +22,11 @@ final class DatabaseTest: XCTestCase {
 
     override func tearDownWithError() throws {
         try super.tearDownWithError()
-        let url = database.url
+        for item in try! database.container.viewContext.fetch(DCTodoItem.fetchRequest()) {
+            database.container.viewContext.delete(item)
+        }
+        try! database.container.viewContext.save()
         database = nil
-        try? FileManager.default.removeItem(at: url)
     }
     
     func testFunc() {
