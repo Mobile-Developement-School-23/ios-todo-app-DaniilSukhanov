@@ -56,7 +56,7 @@ class UITodoListCell: UITableViewCell {
             title.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
             title.leftAnchor.constraint(equalTo: imageViewMark.rightAnchor),
             title.rightAnchor.constraint(equalTo: layoutMarginsGuide.rightAnchor),
-            title.heightAnchor.constraint(equalToConstant: 44),
+            title.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
     

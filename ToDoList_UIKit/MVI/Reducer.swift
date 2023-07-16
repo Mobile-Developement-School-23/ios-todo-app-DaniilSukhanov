@@ -9,7 +9,7 @@ import Foundation
 
 protocol Reducer {
     associatedtype ActionType
-    associatedtype StateType: State
+    associatedtype StateType: MVIState
     func callAsFunction(state: StateType, action: ActionType) async -> StateType
 }
  

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 import CoreData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -20,7 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = ViewController(store: .init())
+        let view = TodoListView()
+        // window?.rootViewController = ViewController(store: .init())
+        window?.rootViewController = UIHostingController(rootView: view)
         window?.windowScene = scene
         window?.makeKeyAndVisible()
         

@@ -9,7 +9,7 @@ import Foundation
 
 protocol Store {
     associatedtype ReducerType: Reducer
-    associatedtype StateType: State
+    associatedtype StateType: MVIState
     
     var state: StateType { get }
     var subscribers: [(StateType) -> Void] { get }

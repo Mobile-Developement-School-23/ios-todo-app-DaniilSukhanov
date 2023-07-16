@@ -14,7 +14,7 @@
 		E449174A2A5329810071F3DA /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44917492A5329810071F3DA /* NetworkTests.swift */; };
 		E44E99882A40D19500985977 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E99872A40D19500985977 /* Log.swift */; };
 		E44E998D2A430C1000985977 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E998C2A430C1000985977 /* Store.swift */; };
-		E44E998F2A430C3500985977 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E998E2A430C3500985977 /* State.swift */; };
+		E44E998F2A430C3500985977 /* MVIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E998E2A430C3500985977 /* MVIState.swift */; };
 		E44E99912A430D7C00985977 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E99902A430D7C00985977 /* Reducer.swift */; };
 		E44E99962A43130D00985977 /* TodoListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E99952A43130D00985977 /* TodoListStore.swift */; };
 		E44E99982A43132D00985977 /* TodoListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E99972A43132D00985977 /* TodoListState.swift */; };
@@ -33,6 +33,8 @@
 		E468D6402A4F02D200DB9567 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468D63F2A4F02D200DB9567 /* NSLayoutConstraint.swift */; };
 		E468D6422A4F14DF00DB9567 /* UICounterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468D6412A4F14DF00DB9567 /* UICounterLabel.swift */; };
 		E468D6442A4F5B5C00DB9567 /* UIBarButtonItem+design.swift in Sources */ = {isa = PBXBuildFile; fileRef = E468D6432A4F5B5C00DB9567 /* UIBarButtonItem+design.swift */; };
+		E46AA9052A62D57A00AF79C2 /* TodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46AA9042A62D57A00AF79C2 /* TodoListView.swift */; };
+		E46AA9072A62D59900AF79C2 /* TodoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46AA9062A62D59900AF79C2 /* TodoItemView.swift */; };
 		E47273DF2A605849009FFE3D /* DataCoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47273DE2A605849009FFE3D /* DataCoreTest.swift */; };
 		E477BAE92A465E0E00C4352F /* EditorTodoItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477BAE82A465E0E00C4352F /* EditorTodoItemController.swift */; };
 		E4BA38462A5DF04B003BB58C /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = E4BA38452A5DF04B003BB58C /* SQLite */; };
@@ -75,7 +77,7 @@
 		E44917492A5329810071F3DA /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		E44E99872A40D19500985977 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		E44E998C2A430C1000985977 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
-		E44E998E2A430C3500985977 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		E44E998E2A430C3500985977 /* MVIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVIState.swift; sourceTree = "<group>"; };
 		E44E99902A430D7C00985977 /* Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
 		E44E99952A43130D00985977 /* TodoListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListStore.swift; sourceTree = "<group>"; };
 		E44E99972A43132D00985977 /* TodoListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListState.swift; sourceTree = "<group>"; };
@@ -98,6 +100,8 @@
 		E468D63F2A4F02D200DB9567 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
 		E468D6412A4F14DF00DB9567 /* UICounterLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICounterLabel.swift; sourceTree = "<group>"; };
 		E468D6432A4F5B5C00DB9567 /* UIBarButtonItem+design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+design.swift"; sourceTree = "<group>"; };
+		E46AA9042A62D57A00AF79C2 /* TodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListView.swift; sourceTree = "<group>"; };
+		E46AA9062A62D59900AF79C2 /* TodoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemView.swift; sourceTree = "<group>"; };
 		E47273DE2A605849009FFE3D /* DataCoreTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCoreTest.swift; sourceTree = "<group>"; };
 		E477BAE82A465E0E00C4352F /* EditorTodoItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorTodoItemController.swift; sourceTree = "<group>"; };
 		E4BA38472A5DF3A6003BB58C /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 		E44E998A2A40F85B00985977 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E46AA9032A62D55C00AF79C2 /* SwiftUI */,
 				E43AC6D52A448B8B00C967C0 /* UITodoListView.swift */,
 				E407D0602A4A1EAE00158B76 /* UITodoListCell.swift */,
 				E4DE61F32A4DB5A100FD1DA5 /* UIRadioImportance.swift */,
@@ -172,7 +177,7 @@
 				E44E99932A4312BF00985977 /* Store */,
 				E44E99922A43108A00985977 /* Reducer */,
 				E44E998C2A430C1000985977 /* Store.swift */,
-				E44E998E2A430C3500985977 /* State.swift */,
+				E44E998E2A430C3500985977 /* MVIState.swift */,
 				E44E99902A430D7C00985977 /* Reducer.swift */,
 			);
 			path = MVI;
@@ -264,6 +269,15 @@
 				E46296302A3D32CC00EE3439 /* ToDoList_UIKitUITestsLaunchTests.swift */,
 			);
 			path = ToDoList_UIKitUITests;
+			sourceTree = "<group>";
+		};
+		E46AA9032A62D55C00AF79C2 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				E46AA9042A62D57A00AF79C2 /* TodoListView.swift */,
+				E46AA9062A62D59900AF79C2 /* TodoItemView.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		E47273C82A603380009FFE3D /* CoreData */ = {
@@ -445,6 +459,7 @@
 				E4DE61F62A4DB7C000FD1DA5 /* UIView+design.swift in Sources */,
 				E462960E2A3D32C800EE3439 /* AppDelegate.swift in Sources */,
 				E4DE61F22A4CD59600FD1DA5 /* UIContextualAction+design.swift in Sources */,
+				E46AA9072A62D59900AF79C2 /* TodoItemView.swift in Sources */,
 				E45A5C702A6181EF009719D6 /* DCTodoItem+CoreDataClass.swift in Sources */,
 				E477BAE92A465E0E00C4352F /* EditorTodoItemController.swift in Sources */,
 				E44E999A2A43133A00985977 /* TodoListReducer.swift in Sources */,
@@ -460,8 +475,9 @@
 				E4FCE5C92A4B700C00E2C056 /* UIImage+createView.swift in Sources */,
 				E407D0612A4A1EAE00158B76 /* UITodoListCell.swift in Sources */,
 				E468D6422A4F14DF00DB9567 /* UICounterLabel.swift in Sources */,
+				E46AA9052A62D57A00AF79C2 /* TodoListView.swift in Sources */,
 				E45A5C712A6181EF009719D6 /* DCTodoItem+CoreDataProperties.swift in Sources */,
-				E44E998F2A430C3500985977 /* State.swift in Sources */,
+				E44E998F2A430C3500985977 /* MVIState.swift in Sources */,
 				E4C98DB22A6070A900E2AD8B /* ObjDatabase.swift in Sources */,
 				E4BA38482A5DF3A6003BB58C /* Database.swift in Sources */,
 				E4DE61F82A4E0CDE00FD1DA5 /* UITextEditor.swift in Sources */,
