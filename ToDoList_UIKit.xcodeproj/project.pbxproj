@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		E407D0612A4A1EAE00158B76 /* UITodoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E407D0602A4A1EAE00158B76 /* UITodoListCell.swift */; };
+		E42C51962A65DD16004DF830 /* SwiftUITodoListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42C51952A65DD16004DF830 /* SwiftUITodoListState.swift */; };
+		E42C51982A65DD30004DF830 /* SwiftUITodoListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42C51972A65DD30004DF830 /* SwiftUITodoListStore.swift */; };
+		E42C519A2A65DD46004DF830 /* SwiftUITodoListReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42C51992A65DD46004DF830 /* SwiftUITodoListReducer.swift */; };
 		E43AC6D62A448B8B00C967C0 /* UITodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43AC6D52A448B8B00C967C0 /* UITodoListView.swift */; };
+		E44035BD2A6489B300443AE7 /* TextEditorResizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44035BC2A6489B300443AE7 /* TextEditorResizingView.swift */; };
 		E44917462A52E5260071F3DA /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E44917452A52E5260071F3DA /* .swiftlint.yml */; };
 		E44917482A52E9F60071F3DA /* URLSession+dataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44917472A52E9F60071F3DA /* URLSession+dataTask.swift */; };
 		E449174A2A5329810071F3DA /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44917492A5329810071F3DA /* NetworkTests.swift */; };
@@ -19,6 +23,7 @@
 		E44E99962A43130D00985977 /* TodoListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E99952A43130D00985977 /* TodoListStore.swift */; };
 		E44E99982A43132D00985977 /* TodoListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E99972A43132D00985977 /* TodoListState.swift */; };
 		E44E999A2A43133A00985977 /* TodoListReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E99992A43133A00985977 /* TodoListReducer.swift */; };
+		E452512F2A67113400F58398 /* TodoCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E452512E2A67113400F58398 /* TodoCellView.swift */; };
 		E45A5C702A6181EF009719D6 /* DCTodoItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A5C6E2A6181EF009719D6 /* DCTodoItem+CoreDataClass.swift */; };
 		E45A5C712A6181EF009719D6 /* DCTodoItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A5C6F2A6181EF009719D6 /* DCTodoItem+CoreDataProperties.swift */; };
 		E462960E2A3D32C800EE3439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E462960D2A3D32C800EE3439 /* AppDelegate.swift */; };
@@ -71,7 +76,11 @@
 /* Begin PBXFileReference section */
 		E407D0602A4A1EAE00158B76 /* UITodoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITodoListCell.swift; sourceTree = "<group>"; };
 		E42AF94F2A5580DE003F47C9 /* ToDoList_UIKitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDoList_UIKitTests.xctestplan; sourceTree = "<group>"; };
+		E42C51952A65DD16004DF830 /* SwiftUITodoListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITodoListState.swift; sourceTree = "<group>"; };
+		E42C51972A65DD30004DF830 /* SwiftUITodoListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITodoListStore.swift; sourceTree = "<group>"; };
+		E42C51992A65DD46004DF830 /* SwiftUITodoListReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITodoListReducer.swift; sourceTree = "<group>"; };
 		E43AC6D52A448B8B00C967C0 /* UITodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITodoListView.swift; sourceTree = "<group>"; };
+		E44035BC2A6489B300443AE7 /* TextEditorResizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorResizingView.swift; sourceTree = "<group>"; };
 		E44917452A52E5260071F3DA /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		E44917472A52E9F60071F3DA /* URLSession+dataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+dataTask.swift"; sourceTree = "<group>"; };
 		E44917492A5329810071F3DA /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
@@ -82,6 +91,7 @@
 		E44E99952A43130D00985977 /* TodoListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListStore.swift; sourceTree = "<group>"; };
 		E44E99972A43132D00985977 /* TodoListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListState.swift; sourceTree = "<group>"; };
 		E44E99992A43133A00985977 /* TodoListReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListReducer.swift; sourceTree = "<group>"; };
+		E452512E2A67113400F58398 /* TodoCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCellView.swift; sourceTree = "<group>"; };
 		E45A5C6E2A6181EF009719D6 /* DCTodoItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DCTodoItem+CoreDataClass.swift"; path = "ToDoList_UIKit/DCTodoItem+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		E45A5C6F2A6181EF009719D6 /* DCTodoItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DCTodoItem+CoreDataProperties.swift"; path = "ToDoList_UIKit/DCTodoItem+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		E462960A2A3D32C800EE3439 /* ToDoList_UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList_UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				E44E99992A43133A00985977 /* TodoListReducer.swift */,
+				E42C51992A65DD46004DF830 /* SwiftUITodoListReducer.swift */,
 			);
 			path = Reducer;
 			sourceTree = "<group>";
@@ -195,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				E44E99952A43130D00985977 /* TodoListStore.swift */,
+				E42C51972A65DD30004DF830 /* SwiftUITodoListStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -203,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				E44E99972A43132D00985977 /* TodoListState.swift */,
+				E42C51952A65DD16004DF830 /* SwiftUITodoListState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -276,6 +289,8 @@
 			children = (
 				E46AA9042A62D57A00AF79C2 /* TodoListView.swift */,
 				E46AA9062A62D59900AF79C2 /* TodoItemView.swift */,
+				E44035BC2A6489B300443AE7 /* TextEditorResizingView.swift */,
+				E452512E2A67113400F58398 /* TodoCellView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -450,6 +465,8 @@
 			files = (
 				E4FE21A02A5714F40067ACE5 /* NetworkingService.swift in Sources */,
 				E468D6442A4F5B5C00DB9567 /* UIBarButtonItem+design.swift in Sources */,
+				E42C51962A65DD16004DF830 /* SwiftUITodoListState.swift in Sources */,
+				E42C519A2A65DD46004DF830 /* SwiftUITodoListReducer.swift in Sources */,
 				E44E998D2A430C1000985977 /* Store.swift in Sources */,
 				E4DE61F42A4DB5A100FD1DA5 /* UIRadioImportance.swift in Sources */,
 				E46296402A3D33D600EE3439 /* TodoItem.swift in Sources */,
@@ -460,6 +477,7 @@
 				E462960E2A3D32C800EE3439 /* AppDelegate.swift in Sources */,
 				E4DE61F22A4CD59600FD1DA5 /* UIContextualAction+design.swift in Sources */,
 				E46AA9072A62D59900AF79C2 /* TodoItemView.swift in Sources */,
+				E452512F2A67113400F58398 /* TodoCellView.swift in Sources */,
 				E45A5C702A6181EF009719D6 /* DCTodoItem+CoreDataClass.swift in Sources */,
 				E477BAE92A465E0E00C4352F /* EditorTodoItemController.swift in Sources */,
 				E44E999A2A43133A00985977 /* TodoListReducer.swift in Sources */,
@@ -477,6 +495,8 @@
 				E468D6422A4F14DF00DB9567 /* UICounterLabel.swift in Sources */,
 				E46AA9052A62D57A00AF79C2 /* TodoListView.swift in Sources */,
 				E45A5C712A6181EF009719D6 /* DCTodoItem+CoreDataProperties.swift in Sources */,
+				E44035BD2A6489B300443AE7 /* TextEditorResizingView.swift in Sources */,
+				E42C51982A65DD30004DF830 /* SwiftUITodoListStore.swift in Sources */,
 				E44E998F2A430C3500985977 /* MVIState.swift in Sources */,
 				E4C98DB22A6070A900E2AD8B /* ObjDatabase.swift in Sources */,
 				E4BA38482A5DF3A6003BB58C /* Database.swift in Sources */,

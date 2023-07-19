@@ -22,8 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         window = UIWindow(windowScene: scene)
         let view = TodoListView()
-        // window?.rootViewController = ViewController(store: .init())
         window?.rootViewController = UIHostingController(rootView: view)
+        // window?.rootViewController = ViewController(store: .init())
         window?.windowScene = scene
         window?.makeKeyAndVisible()
         

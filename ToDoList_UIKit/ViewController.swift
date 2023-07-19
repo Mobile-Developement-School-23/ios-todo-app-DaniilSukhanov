@@ -97,7 +97,6 @@ class ViewController: UIViewController {
             todoListView.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor)
         ])
     
-        
         buttonAdd.widthAnchor.constraint(equalToConstant: 44).isActive = true
         buttonAdd.heightAnchor.constraint(equalToConstant: 44).isActive = true
         buttonAdd.backgroundColor = .blue

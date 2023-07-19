@@ -8,7 +8,6 @@
 import Foundation
  
 struct TodoListState: MVIState {
-    // TODO: Можно заменить CoreDatabase на Database (и наоборот)
     var fileCache = FileCache(CoreDatabase())
     var selectedItem: TodoItem?
     var isShowingMakeItem = false
