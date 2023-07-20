@@ -81,13 +81,20 @@ struct TodoItemView: View {
                                     }.pickerStyle(.segmented)
                                 }
                                 VStack(alignment: .leading, spacing: 0) {
+                                
                                     Toggle("Сделать до", isOn: $isSelectedDeadline)
                                         .onTapGesture {
                                             withAnimation {
-                                                isShowingCalendar = !isSelectedDeadline
+                                                if isSelectedDeadline {
+                                                    isSelectedDeadline = false
+                                                    isShowingCalendar = false
+                                                } else {
+                                                    isShowingCalendar = true
+                                                    isSelectedDeadline = true
+                                                }
                                             }
                                         }
-                                    if isSelectedDeadline {
+                                    if isSelectedDeadline || isShowingCalendar {
                                         Button {
                                             withAnimation {
                                                 isShowingCalendar.toggle()
