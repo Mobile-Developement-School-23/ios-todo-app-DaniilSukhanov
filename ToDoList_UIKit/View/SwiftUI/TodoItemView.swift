@@ -83,11 +83,15 @@ struct TodoItemView: View {
                                 VStack(alignment: .leading, spacing: 0) {
                                     Toggle("Сделать до", isOn: $isSelectedDeadline)
                                         .onTapGesture {
-                                            isShowingCalendar = !isSelectedDeadline
+                                            withAnimation {
+                                                isShowingCalendar = !isSelectedDeadline
+                                            }
                                         }
                                     if isSelectedDeadline {
                                         Button {
-                                            isShowingCalendar.toggle()
+                                            withAnimation {
+                                                isShowingCalendar.toggle()
+                                            }
                                         } label: {
                                             Text(formateDate(selectedDate))
                                                 .foregroundColor(.blue)
