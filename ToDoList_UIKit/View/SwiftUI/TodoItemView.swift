@@ -44,7 +44,11 @@ struct TodoItemView: View {
                                                minHeightPortrait: 120, minHeightLandscape: proxy.size.height - 32)
                         .scrollContentBackground(.hidden)
                         .scrollDisabled(true)
-                        .background(.background)
+                        .background(
+                            colorScheme == .dark ?
+                                Color(red: 0.14, green: 0.14, blue: 0.16) :
+                                .white
+                        )
                         .cornerRadius(16)
                         .overlay(alignment: .topLeading) {
                             if text.isEmpty {
@@ -96,7 +100,11 @@ struct TodoItemView: View {
                                     
                                 }
                             }.padding()
-                                .background(.background)
+                                .background(
+                                    colorScheme == .dark ?
+                                        Color(red: 0.14, green: 0.14, blue: 0.16) :
+                                        .white
+                                )
                                 .clipShape(
                                     RoundedRectangle(cornerRadius: 16)
                                 )
@@ -121,7 +129,11 @@ struct TodoItemView: View {
                                     RoundedRectangle(cornerRadius: 16)
                                         .stroke(.background, lineWidth: 2)
                                 )
-                                .background(.background)
+                                .background(
+                                    colorScheme == .dark ?
+                                        Color(red: 0.14, green: 0.14, blue: 0.16) :
+                                        .white
+                                )
                                 .cornerRadius(16)
                             Spacer()
                         }
@@ -157,7 +169,9 @@ struct TodoItemView: View {
                         guard let windowScene else {
                             return
                         }
-                        orientation = windowScene.interfaceOrientation
+                        withAnimation {
+                            orientation = windowScene.interfaceOrientation
+                        }
                     }
                     .onTapGesture {
                         self.focus = nil

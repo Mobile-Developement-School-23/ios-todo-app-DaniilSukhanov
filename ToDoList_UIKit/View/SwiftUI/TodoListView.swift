@@ -11,6 +11,7 @@ struct TodoListView: View {
     @StateObject private var store: SwiftUITodoListStore = .init()
     @State private var selectedTodoItem: TodoItem?
     @State private var isShowingMakeTask = false
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         GeometryReader { geometry in
@@ -28,14 +29,21 @@ struct TodoListView: View {
                                     .onTapGesture {
                                         selectedTodoItem = item
                                     }
-                                
-                            }
+                            }.listRowBackground(
+                                colorScheme == .dark ?
+                                    Color(red: 0.14, green: 0.14, blue: 0.16) :
+                                    .white
+                            )
                             Button {
                                 selectedTodoItem = .init(text: "", importance: .usual, isMake: false, createdDate: .now)
                             } label: {
                                 Text("Новое")
                                     .foregroundColor(.gray)
-                            }
+                            }.listRowBackground(
+                                colorScheme == .dark ?
+                                    Color(red: 0.14, green: 0.14, blue: 0.16) :
+                                    .white
+                            )
                             
                         } header: {
                             HStack {
@@ -45,7 +53,6 @@ struct TodoListView: View {
                                     isShowingMakeTask.toggle()
                                 } label: {
                                     (isShowingMakeTask ? Text("Скрыть") : Text("Показать"))
-                                    
                                 }
                             }
                         }.textCase(nil)
@@ -70,9 +77,16 @@ struct TodoListView: View {
                                 .foregroundColor(.white)
                                 .frame(width: 23, height: 23)
                         }
-                }
-                .frame(width: 44, height: 44)
-                    .position(x: 0.5 * geometry.size.width, y: 0.98 * geometry.size.height)
+                }.frame(width: 44, height: 44)
+                    .position(x: 0.5 * geometry.size.width, y: geometry.size.height - (geometry.size.height * 0.065625))
+                    .shadow(
+                        color:
+                            colorScheme == .light ?
+                            Color(red: 0, green: 0.19, blue: 0.4).opacity(0.3) :
+                            Color(red: 0, green: 0.29, blue: 0.6).opacity(0.6),
+                        radius: 10,
+                        x: 0, y: 8
+                    )
             }
         }
     }
