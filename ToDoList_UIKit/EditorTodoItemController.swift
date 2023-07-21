@@ -113,7 +113,6 @@ class EditorTodoItemController: UIViewController {
         super.viewWillTransition(to: size, with: coordinator)
 
         let deviceOrientation = UIDevice.current.orientation
-
         switch deviceOrientation {
         case .landscapeLeft, .landscapeRight:
             buttonDelete.isHidden = true

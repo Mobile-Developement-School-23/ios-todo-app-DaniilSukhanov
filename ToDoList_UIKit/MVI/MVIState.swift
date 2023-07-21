@@ -7,6 +7,11 @@
 
 import Foundation
 
+
 protocol State {
+
+}
+
+protocol MVIState {
 
 }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum Image: String {
+enum ImageType: String {
     case plusCircle
     case whiteСheckmarkCircle
     case greenСheckmarkCircle
@@ -20,7 +20,7 @@ enum Image: String {
 }
 
 extension UIImage {
-    static func create(type image: Image) -> UIImage {
+    static func create(type image: ImageType) -> UIImage {
         let string = image.rawValue
         let name = string.first!.uppercased() + string.dropFirst()
         return .init(named: name)!
@@ -28,7 +28,7 @@ extension UIImage {
 }
 
 extension UIImageView {
-    static func create(type image: Image) -> UIImageView {
+    static func create(type image: ImageType) -> UIImageView {
         .init(image: UIImage.create(type: image))
     }
 }

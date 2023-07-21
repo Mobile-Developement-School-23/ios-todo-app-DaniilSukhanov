@@ -10,7 +10,7 @@ import OSLog
 import SQLite
 import CoreData
 
-struct TodoItem: Hashable {
+struct TodoItem: Hashable, Identifiable {
     enum Importance: Int {
         // unimportant - неважная, usual - обычная, important - важная
         case unimportant, usual, important
